@@ -6,7 +6,15 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "declaration": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "ESNext.Disposable"
+    ]
   },
-  "include": ["src", "test"]
+  "include": [
+    "src",
+    "test"
+  ]
 }

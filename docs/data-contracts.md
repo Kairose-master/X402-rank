@@ -26,7 +26,7 @@ The parser was independently implemented against these schemas. Bulk endpoint hi
 
 The public API may cache its index for six hours, so its summary can differ from the raw branch. Preserve both and report the mismatch; never enrich every endpoint using a global aggregate success fraction.
 
-History: `g=go`, `c=caution`, `n=no_go`, `x=unreachable/error`, `-=not checked`. Date strings are validated, ordered and right-aligned to history. The most recent actual observation supplies freshness; downloading today's index cannot make an old endpoint observation fresh. A last verdict inconsistent with history is quarantined. These are read-only challenge checks, not executed/paid tasks.
+History: `g=go`, `c=caution`, `n=no_go`, `x=unreachable/error`, `-=not checked`. Date strings are validated, ordered and right-aligned to history. The most recent actual observation supplies freshness; downloading today's index cannot make an old endpoint observation fresh. A rate-limited latest scan is valid missing data: its history remains available, but the current verdict is unknown. Other last verdicts inconsistent with history are quarantined. These are read-only challenge checks, not executed/paid tasks.
 
 Doctor joins by origin/path, ignores query and trailing slashes, and keeps one scanned method. X402-rank does not merge query variants or GET/POST catalog identities. It requires a matching scanned method/network and labels evidence `origin-path`. It cannot establish whether the same asset, price, parameters or output remain valid now; every returned row requires pre-payment validation.
 

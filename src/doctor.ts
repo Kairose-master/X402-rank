@@ -46,6 +46,12 @@ function fromHistory(url: string, history: unknown, days: string[], lastRaw: unk
   const position = history.search(/[^-]-*$/);
   const observedDate = days[days.length - history.length + position];
   const letter = history[position];
+  // A rate-limited scan overwrites last but writes "-" into history. It is
+  // valid missing data, not a failed scan or confirmation of the prior verdict.
+  if (last.verdict === "rate_limited" && history.endsWith("-")) {
+    return { ...unknownTrust(url, raw), updated, method, observedDate, daysChecked: seen.length,
+      uptime30d: seen.filter(c => c === "g" || c === "c").length / seen.length };
+  }
   const verdict: DoctorVerdict = letter === "g" ? "go" : letter === "c" ? "caution" : "no_go";
   // last holds the most recent scan, even when newer days were not scanned.
   const expected = letter === "g" ? "go" : letter === "c" ? "caution" : letter === "n" ? "no_go" : "error";

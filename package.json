@@ -3,16 +3,19 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20.18.0" },
+  "engines": {
+    "node": ">=20.18.0"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "npm run build && vitest run test/ranker.test.ts && node --test test/ingestion.test.mjs",
-    "test:ingestion": "npm run build && node --test test/ingestion.test.mjs",
+    "test": "npm run build && vitest run test/ranker.test.ts && node --test test/*.test.mjs",
+    "test:ingestion": "npm run build && node --test test/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "rank": "npm run build --silent && node scripts/rank.mjs"
   },
   "devDependencies": {
     "typescript": "5.9.2",
-    "vitest": "3.2.4"
+    "vitest": "3.2.4",
+    "@types/node": "22.18.0"
   }
 }
