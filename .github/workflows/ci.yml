@@ -1,0 +1,51 @@
+name: Test and catalog smoke
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm test
+  live-catalog:
+    # Read-only public catalog requests; never a wallet, payment, seller probe or LLM call.
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Read Bazaar and Doctor, rank weather services on Base USDC
+        run: >-
+          npm run rank -- --query "weather forecast"
+          --network eip155:8453
+          --asset 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+          --max-amount 50000
+      - name: Attach raw snapshot and ranking (when available)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog-ranking-${{ github.run_id }}
+          path: data/*.json
+          if-no-files-found: warn
+          retention-days: 7
