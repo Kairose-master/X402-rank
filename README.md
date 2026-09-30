@@ -42,7 +42,7 @@ Replay evaluates freshness **as of the snapshot's capture time** and is labelled
 
 `--page-size 500` and `--max-pages 200` bound catalog reads. Server-capped page sizes are respected. A page cap or changing reported total marks `complete: false`; by default the CLI saves the partial report and exits **2**. `--allow-partial` explicitly permits a partial experiment without relabelling it complete. Other failures exit **1**. Invalid/repeated pagination and malformed mandatory upstream data fail closed; no fixture fallback is used.
 
-## Doctor integration: important contract details
+## Bazaar comparison benchmark\n\nThe offline comparison harness, label protocol, fixed-snapshot replay, and metric definitions are in [docs/benchmark.md](docs/benchmark.md). It validates that each relevance-evidence quote occurs in the referenced raw Bazaar field and that the label manifest is bound to the exact snapshot SHA-256.\n\n## Doctor integration: important contract details
 
 Thanks to [Fizzl13 / x402 Doctor](https://github.com/Fizzl13/x402-doctor) for offering its public track record as an experiment input.
 
@@ -91,4 +91,4 @@ GitHub Actions runs deterministic tests, then a separate **non-blocking live cat
 
 This release does **not** pay, probe sellers, validate live 402 challenges, verify signed task results, train an ML model or import xAI's recommender. A real buyer must revalidate the current challenge, destination, amount, network and output requirements before authorizing any payment. A signature proves origin/integrity, not truthful or useful content.
 
-Next: compare this baseline against Bazaar's own ranking on an independently labelled task set, then add consented outcome collection and budgeted exploration. See [data contracts](docs/data-contracts.md) for upstream sources and freshness/coverage limitations.
+Next: prepare and freeze an independently labelled Bazaar task set using [the benchmark protocol](docs/benchmark.md), then add consented outcome collection and budgeted exploration. See [data contracts](docs/data-contracts.md) for upstream sources and freshness/coverage limitations.

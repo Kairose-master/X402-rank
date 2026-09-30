@@ -11,7 +11,8 @@
     "test": "npm run build && vitest run test/ranker.test.ts && node --test test/*.test.mjs",
     "test:ingestion": "npm run build && node --test test/*.test.mjs",
     "typecheck": "tsc --noEmit",
-    "rank": "npm run build --silent && node scripts/rank.mjs"
+    "rank": "npm run build --silent && node scripts/rank.mjs",
+    "benchmark": "npm run build --silent && node scripts/benchmark.mjs"
   },
   "devDependencies": {
     "typescript": "5.9.2",

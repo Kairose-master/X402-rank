@@ -20,13 +20,13 @@ export interface BenchmarkManifest {
   snapshotSha256: string;
   tasks: BenchmarkTask[];
 }
-export const benchmarkText = (resource: ReturnType<typeof normalizeResource>, field: RelevanceJudgment["sourceField"]): string => {
-  if (field === "serviceName") {
-    const raw = resource.raw as Record<string, unknown>;
-    return typeof raw.serviceName === "string" ? raw.serviceName : "";
-  }
-  return field === "description" ? resource.description : resource.tags.join("\n");
-};
+export function benchmarkText(resource: ReturnType<typeof normalizeResource>, field: RelevanceJudgment["sourceField"]): string {
+  const raw = resource.raw as Record<string, unknown>;
+  if (field === "serviceName") return typeof raw.serviceName === "string" ? raw.serviceName : "";
+  if (field === "description") return typeof raw.description === "string" ? raw.description : "";
+  if (field === "tags") return Array.isArray(raw.tags) ? raw.tags.filter((tag): tag is string => typeof tag === "string").join("\n") : "";
+  return "";
+}
 export function validateBenchmark(snapshot: { catalog: { items: unknown[] }; capturedAt: string }, manifest: BenchmarkManifest, snapshotSha256: string) {
   if (manifest.schemaVersion !== 1 || manifest.snapshotSha256 !== snapshotSha256 || !Array.isArray(manifest.tasks) || !manifest.tasks.length) {
     throw new Error("Manifest schema, snapshot hash, or task set is invalid");
@@ -40,17 +40,16 @@ export function validateBenchmark(snapshot: { catalog: { items: unknown[] }; cap
   }
   const taskIds = new Set<string>();
   for (const task of manifest.tasks) {
-    if (!task.id || taskIds.has(task.id) || !task.query.trim() || !Array.isArray(task.candidates) || !task.candidates.length) throw new Error("Invalid or duplicate benchmark task");
+    if (!task.id || taskIds.has(task.id) || !task.query.trim() || !Array.isArray(task.candidates) || !task.candidates.length || task.candidates.length > 1000) throw new Error("Invalid or duplicate benchmark task");
     taskIds.add(task.id);
     const labels = new Set<string>();
     for (const judgment of task.candidates) {
       const resource = resources.get(judgment.id);
-      if (!resource || labels.has(judgment.id) || !Number.isInteger(judgment.grade) || judgment.grade < 0 || judgment.grade > 3 || !judgment.evidence.trim()) {
+      if (!resource || labels.has(judgment.id) || !Number.isInteger(judgment.grade) || judgment.grade < 0 || judgment.grade > 3 || !["serviceName", "description", "tags"].includes(judgment.sourceField) || !judgment.evidence.trim()) {
         throw new Error(`Invalid judgment in task ${task.id}: ${judgment.id}`);
       }
       labels.add(judgment.id);
-      const text = benchmarkText(resource, judgment.sourceField);
-      if (!text.includes(judgment.evidence)) throw new Error(`Evidence is not an exact quote from raw Bazaar metadata: ${judgment.id}`);
+      if (!benchmarkText(resource, judgment.sourceField).includes(judgment.evidence)) throw new Error(`Evidence is not an exact quote from raw Bazaar metadata: ${judgment.id}`);
     }
     if (new Set(task.nativeOrder).size !== task.nativeOrder.length || task.nativeOrder.some(id => !labels.has(id))) throw new Error(`Native order must be unique and drawn from the judged candidate pool: ${task.id}`);
     if (!task.nativeCapture?.source || !task.nativeCapture?.request || !Number.isFinite(Date.parse(task.nativeCapture.capturedAt))) throw new Error(`Missing native-order provenance: ${task.id}`);
