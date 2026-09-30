@@ -42,7 +42,13 @@ Replay evaluates freshness **as of the snapshot's capture time** and is labelled
 
 `--page-size 500` and `--max-pages 200` bound catalog reads. Server-capped page sizes are respected. A page cap or changing reported total marks `complete: false`; by default the CLI saves the partial report and exits **2**. `--allow-partial` explicitly permits a partial experiment without relabelling it complete. Other failures exit **1**. Invalid/repeated pagination and malformed mandatory upstream data fail closed; no fixture fallback is used.
 
-## Bazaar comparison benchmark\n\nThe offline comparison harness, label protocol, fixed-snapshot replay, and metric definitions are in [docs/benchmark.md](docs/benchmark.md). It validates that each relevance-evidence quote occurs in the referenced raw Bazaar field and that the label manifest is bound to the exact snapshot SHA-256.\n\n## Doctor integration: important contract details
+## Bazaar comparison benchmark\n\nThe offline comparison harness, label protocol, fixed-snapshot replay, and metric definitions are in [docs/benchmark.md](docs/benchmark.md). It validates that each relevance-evidence quote occurs in the referenced raw Bazaar field and that the label manifest is bound to the exact snapshot SHA-256.\n\n## Optional signed evidence providers
+
+The current live run still uses Bazaar as the candidate universe and Doctor as its operational-history input. An endpoint outside Bazaar is therefore outside that run's candidate set, not merely an "unknown-quality" candidate.
+
+An experimental x402 Trust adapter is documented in [docs/x402-trust-adapter.md](docs/x402-trust-adapter.md). It adds a fail-closed Ed25519 verification primitive for future signed source snapshots, but **does not yet ingest or score the live x402 Trust API** because its response envelope/canonicalization must be independently inspected rather than guessed. On-chain settlement evidence, if added, will remain distinct from independent-buyer demand and verified task outcome.
+
+## Doctor integration: important contract details
 
 Thanks to [Fizzl13 / x402 Doctor](https://github.com/Fizzl13/x402-doctor) for offering its public track record as an experiment input.
 
