@@ -6,7 +6,7 @@ This adapter is intentionally **optional** and evidence-oriented.
 
 The current live X402-rank pipeline uses the CDP Bazaar catalog as its candidate universe and joins x402 Doctor route-level history onto those candidates. Therefore, an endpoint outside Bazaar is not an "unknown-quality Bazaar candidate"; it is outside that run's candidate set.
 
-x402 Trust may provide a complementary source with broader endpoint coverage, repeated observations, on-chain settlement evidence, and signed machine-readable responses.
+x402 Trust may provide a complementary source with broader endpoint coverage, repeated observations, on-chain settlement evidence, and signed machine-readable responses. This adapter verifies the free preview only; it does not add those reports to the Bazaar candidate set or current score.
 
 ## Evidence semantics
 
@@ -24,14 +24,16 @@ Raw settlement volume must not become a reputation shortcut. Self-purchases and 
 
 X402-rank's existing snapshot SHA-256 binds a report to captured bytes, but does not authenticate who produced those bytes. A valid upstream Ed25519 signature can add source provenance.
 
-The implementation therefore exposes a fail-closed Ed25519 verification primitive in `src/x402-trust.ts`.
+The live contract is implemented in `src/x402-trust.ts`:
 
-It deliberately does **not** guess the live API envelope, public-key encoding, signature encoding, or canonicalization. Before wiring live ingestion, verify those details against the provider's published machine-readable contract:
+1. Parse the complete response envelope and remove the top-level `signature` object.
+2. Canonicalize the remaining JSON with RFC 8785 JCS and compare its SHA-256 hex digest with `signature.digest`.
+3. Decode the unpadded base64url `signature.value` and verify pure Ed25519 over the canonical UTF-8 bytes.
+4. Resolve `signature.keyId` only through `PINNED_X402_TRUST_KEYS`; the map contains current `x402trust-2026-09-20` and the published retired keys. The response's `signature.publicKeys` is never followed.
 
-- https://x402-trust.com/llms.txt
-- https://x402-trust.com/v1/x402-trust-preview
+The public signature vector and a captured free preview live in `test/fixtures/x402-trust/`. The preview is a signed response. Its outer `x402-trust-preview` envelope is schema 1.0.0, and each embedded `x402-trust` report is schema 2.0.0. Tests cover payload/digest tampering, unknown and wrong keys, missing or malformed signatures, contract mismatch, JCS-vs-raw-byte behavior, and offline replay.
 
-If the contract cannot be retrieved or verified, do not silently ingest unsigned data.
+`fetchX402TrustPreview` is a fixed-URL GET with redirects disabled. The paid `POST /v1/x402-trust` route is not implemented. Verified snapshots retain the exact raw response bytes (base64), raw-byte SHA-256, signed envelope, source URL, capture time, pinned-key document URL, key ID and schema metadata. `rankSnapshot` reverifies this artifact during replay and passes it through to the report without turning Doctor operational trust into settlement evidence, buyer demand, or task outcome.
 
 ## Intended architecture
 
@@ -53,17 +55,4 @@ evidence providers
 
 Doctor and x402 Trust are not interchangeable scores. Preserve source-specific fields and semantics in snapshots, then derive explicit policy features.
 
-## Next integration step
-
-Once the live response contract is independently inspected:
-
-1. add the preview/bulk endpoint to the read-only allowlist;
-2. capture exact response bytes plus signature metadata;
-3. canonicalize exactly as documented by the provider;
-4. verify Ed25519 before parsing evidence into ranking features;
-5. store the signed source artifact in the snapshot;
-6. replay offline without network access;
-7. add fixtures derived from the documented schema, clearly labelled as fixtures;
-8. only then decide which signed observations are eligibility gates versus ranking features.
-
-The paid bulk endpoint must remain opt-in. Normal tests and replay must never spend funds.
+For contract updates, refresh the pinned key map through the pinned key-document URL using a reviewed source change. Never bootstrap a key from an unverified response. Normal tests and replay are offline and never spend funds.
