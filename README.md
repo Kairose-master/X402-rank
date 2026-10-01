@@ -46,7 +46,7 @@ Replay evaluates freshness **as of the snapshot's capture time** and is labelled
 
 The current live run still uses Bazaar as the candidate universe and Doctor as its operational-history input. An endpoint outside Bazaar is therefore outside that run's candidate set, not merely an "unknown-quality" candidate.
 
-An experimental x402 Trust adapter is documented in [docs/x402-trust-adapter.md](docs/x402-trust-adapter.md). It adds a fail-closed Ed25519 verification primitive for future signed source snapshots, but **does not yet ingest or score the live x402 Trust API** because its response envelope/canonicalization must be independently inspected rather than guessed. On-chain settlement evidence, if added, will remain distinct from independent-buyer demand and verified task outcome.
+An optional x402 Trust adapter is documented in [docs/x402-trust-adapter.md](docs/x402-trust-adapter.md). It verifies the provider's signed free preview with RFC 8785 JCS, SHA-256, Ed25519 and pinned keys, and preserves the verified raw response and provenance for offline replay. It does not change candidate discovery or ranking weights; settlement evidence remains distinct from independent-buyer demand and verified task outcome. Paid report routes are not called.
 
 ## Doctor integration: important contract details
 
