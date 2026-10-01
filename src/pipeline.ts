@@ -1,5 +1,6 @@
 import { assetKey, atomicAmount, fetchBazaarCatalog, normalizeNetwork, normalizeResource, type BazaarSnapshot, type CatalogResource, type PaymentOption } from "./bazaar.js";
 import { fetchDoctorData, lookupDoctor, parseDoctorIndex, type DoctorIndex, type DoctorTrust } from "./doctor.js";
+import { reverifyX402TrustEvidence, type VerifiedTrustEvidence } from "./x402-trust.js";
 import { BAZAAR_URL, DOCTOR_INDEX, DOCTOR_SUMMARY, type HttpOptions } from "./http.js";
 import { rankEndpoints, type RankingWeights } from "./ranker.js";
 
@@ -115,6 +116,8 @@ export interface Snapshot {
   schemaVersion: 1; capturedAt: string; catalog: BazaarSnapshot;
   doctorIndex: unknown; doctorSummary: unknown; warnings: string[];
   sources: { bazaar: string; doctorIndex: string; doctorSummary: string };
+  /** Optional signed artifact; independent of Doctor operational trust and ranking features. */
+  x402TrustEvidence?: VerifiedTrustEvidence;
 }
 export async function collectSnapshot(options: HttpOptions & { pageSize?: number; maxPages?: number } = {}): Promise<Snapshot> {
   const catalog = await fetchBazaarCatalog(options);
@@ -127,10 +130,12 @@ export async function collectSnapshot(options: HttpOptions & { pageSize?: number
 }
 export function rankSnapshot(snapshot: Snapshot, request: RankRequest) {
   if (snapshot.schemaVersion !== 1 || !Array.isArray(snapshot.catalog?.items) || !Array.isArray(snapshot.warnings) || typeof snapshot.catalog.complete !== "boolean" || !Number.isFinite(Date.parse(snapshot.capturedAt))) throw new Error("Invalid snapshot");
+  const x402TrustEvidence = snapshot.x402TrustEvidence === undefined ? undefined : reverifyX402TrustEvidence(snapshot.x402TrustEvidence);
   return {
     schemaVersion: 1, capturedAt: snapshot.capturedAt, sources: snapshot.sources,
     complete: snapshot.catalog.complete, stopReason: snapshot.catalog.stopReason,
     warnings: snapshot.warnings,
+    ...(x402TrustEvidence ? { x402TrustEvidence } : {}),
     ...rankCatalog(snapshot.catalog.items, parseDoctorIndex(snapshot.doctorIndex), { ...request, now: request.now ?? snapshot.capturedAt }),
   };
 }

@@ -1,0 +1,52 @@
+{
+  "description": "Test vector for verifying x402-trust response signatures. `response` is a complete signed response as served by the API. To verify: remove its `signature` field, canonicalize the rest with JCS (RFC 8785), SHA-256 the canonical UTF-8 bytes (must equal canonicalSha256 and signature.digest), then verify the base64url Ed25519 signature.value against `publicKey`.",
+  "procedure": {
+    "canonicalization": "JCS (RFC 8785): object keys sorted by UTF-16 code unit order, no whitespace, numbers per ECMAScript Number::toString",
+    "hash": "SHA-256 over the canonical UTF-8 bytes",
+    "signature": "pure Ed25519 over the canonical UTF-8 bytes, base64url without padding",
+    "excludedField": "signature (the whole signature object is excluded from the canonical input)"
+  },
+  "keyId": "x402trust-testvector-TEST-ONLY",
+  "publicKey": "V_8kkBx7oeqLWpKDUOHmkzAwePSfLyDBvt6caaO-Y7Y",
+  "note": "This is a dedicated TEST-ONLY keypair, generated fresh by scripts/trust-signing-testvector.ts and discarded. It is NOT a production key and is never listed in the production key document. Production keys live at https://x402-trust.com/.well-known/x402-trust-keys.json. When verifying PRODUCTION responses, pin that key document URL (fetch once at bootstrap) or the production public keys themselves as your trust anchor: never follow the signature.publicKeys URL out of an unverified response, or a forged response would verify against the attacker's own key. For this vector the embedded publicKey field above IS your anchor.",
+  "canonicalJson": "{\"$schema\":\"https://x402-trust.com/schemas/semantic-search.schema.json\",\"count\":2,\"generatedAt\":1756000000000,\"matches\":[{\"description\":\"Hyperlocal weather data, paid per call.\",\"endpointPage\":\"https://x402-trust.com/endpoint/4711\",\"grade\":\"A\",\"id\":4711,\"resource\":\"https://api.example.com/v1/weather\",\"score\":91.2,\"similarity\":0.86},{\"description\":null,\"endpointPage\":\"https://x402-trust.com/endpoint/4712\",\"grade\":\"D\",\"id\":4712,\"resource\":\"https://api.example.net/v1/forecast\",\"score\":63.3,\"similarity\":0.83}],\"note\":\"Discovery only: matches are ranked by meaning, scores are context. Query /v1/x402-trust for a full report on any match.\",\"query\":\"weather data\",\"schemaType\":\"semantic-search\",\"schemaVersion\":\"1.0.0\"}",
+  "canonicalSha256": "37dbc939772a58455e65beab1318f880dbd32962bb9ef6aee2078645b18db2c3",
+  "response": {
+    "$schema": "https://x402-trust.com/schemas/semantic-search.schema.json",
+    "schemaVersion": "1.0.0",
+    "schemaType": "semantic-search",
+    "query": "weather data",
+    "generatedAt": 1756000000000,
+    "count": 2,
+    "matches": [
+      {
+        "id": 4711,
+        "resource": "https://api.example.com/v1/weather",
+        "score": 91.2,
+        "grade": "A",
+        "similarity": 0.86,
+        "description": "Hyperlocal weather data, paid per call.",
+        "endpointPage": "https://x402-trust.com/endpoint/4711"
+      },
+      {
+        "id": 4712,
+        "resource": "https://api.example.net/v1/forecast",
+        "score": 63.3,
+        "grade": "D",
+        "similarity": 0.83,
+        "description": null,
+        "endpointPage": "https://x402-trust.com/endpoint/4712"
+      }
+    ],
+    "note": "Discovery only: matches are ranked by meaning, scores are context. Query /v1/x402-trust for a full report on any match.",
+    "signature": {
+      "alg": "Ed25519",
+      "canon": "RFC8785",
+      "hash": "SHA-256",
+      "keyId": "x402trust-testvector-TEST-ONLY",
+      "digest": "37dbc939772a58455e65beab1318f880dbd32962bb9ef6aee2078645b18db2c3",
+      "value": "ZLX8xv4bkPSmvHpY1EPnotKq7RwiWetQzrbCMiQHIK8u0vAd3rJYa5j1wRe3wbmcfi19WS055-bYEF-4Iix6CQ",
+      "publicKeys": "https://x402-trust.com/.well-known/x402-trust-keys.json"
+    }
+  }
+}
