@@ -20,6 +20,8 @@ test('native order is preserved independently of catalog order; pool uses only e
   assert.throws(() => nativeIds({ ...search, resources: [a, a] }), /Duplicate/);
   assert.throws(() => nativeIds({ items: [a] }), /Invalid/);
   assert.equal(new URL(searchUrl('weather forecast')).searchParams.get('query'), 'weather forecast');
+  assert.equal(metadataPool({ catalog: { items: [a, { ...a, quality: { ignored: true } }, b, raw('z', 'first'), raw('z', 'second')] } }, search, 'weather').length, 2);
+  assert.throws(() => metadataPool({ catalog: { items: [a, { ...a, description: 'different' }, b] } }, search, 'weather'), /Ambiguous/);
 });
 
 test('archive import verifies exact bytes, raw catalog reconstruction, native request and capture window', async () => {
@@ -60,5 +62,14 @@ test('archive import verifies exact bytes, raw catalog reconstruction, native re
     await assert.rejects(readBound(root, { file: '../escape', sha256: '0'.repeat(64) }), /escapes/);
     await writeFile(join(root, 'search.json'), JSON.stringify({ ...search, resources: [a, b] }));
     await assert.rejects(verifyArchive(root, archive), /SHA mismatch/);
+    await writeFile(join(root, 'search.json'), JSON.stringify(search) + '\n');
+    const packed = run('scripts/pack-benchmark.mjs', root);
+    assert.equal(packed.status, 0, packed.stderr);
+    assert.deepEqual((await verifyArchive(root, JSON.parse(await readFile(join(root, 'archive.json'), 'utf8')))).tasks[0].nativeOrder, nativeIds(search));
+    const compressedReplay = run('scripts/benchmark.mjs', '--snapshot', join(root, 'snapshot.json.gz'), '--labels', join(root, 'manifest.json'), '--out', join(root, 'packed-metrics.json'));
+    assert.equal(compressedReplay.status, 0, compressedReplay.stderr);
+    assert.equal(await readFile(join(root, 'packed-metrics.json'), 'utf8'), first);
+
+
   } finally { await rm(root, { recursive: true, force: true }); }
 });

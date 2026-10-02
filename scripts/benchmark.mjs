@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readFile, mkdir, writeFile, rename } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
+import { gunzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { rankSnapshot } from '../dist/pipeline.js';
 import { normalizeResource } from '../dist/bazaar.js';
@@ -11,7 +12,8 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((out, value, index,
   return out;
 }, []));
 if (!args.snapshot || !args.labels) throw new Error('Usage: npm run benchmark -- --snapshot data/snapshot.json --labels benchmarks/tasks.json [--out data/benchmark.json]');
-const snapshotBytes = await readFile(args.snapshot);
+const storedSnapshot = await readFile(args.snapshot);
+const snapshotBytes = args.snapshot.endsWith('.gz') ? gunzipSync(storedSnapshot, { maxOutputLength: 256 * 1024 * 1024 }) : storedSnapshot;
 const manifest = JSON.parse(await readFile(args.labels, 'utf8'));
 const snapshot = JSON.parse(snapshotBytes);
 const snapshotSha256 = createHash('sha256').update(snapshotBytes).digest('hex');
