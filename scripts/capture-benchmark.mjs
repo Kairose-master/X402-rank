@@ -30,8 +30,9 @@ const recorder = async (url, init) => {
     }
   } finally { await reader.cancel(); reader.releaseLock(); }
   const bytes = Buffer.concat(chunks);
-  if (!/\bapplication\/json\b/i.test(response.headers.get('content-type') ?? '')) throw new Error('Capture expected JSON; upstream returned non-JSON (possibly an access wall)');
-  JSON.parse(bytes.toString('utf8'));
+  // raw.githubusercontent.com serves valid JSON with text/plain Content-Type.
+  try { JSON.parse(bytes.toString('utf8')); }
+  catch { throw new Error(`Capture expected JSON bytes from ${url}; received invalid JSON (${response.headers.get('content-type') ?? 'unknown content type'})`); }
   const file = `response-${String(archive.responses.length).padStart(3, '0')}.json`;
   await writeFile(resolve(root, file), bytes);
   archive.responses.push({ file, sha256: sha256(bytes), url: String(url), status: response.status, capturedAt: new Date().toISOString() });
