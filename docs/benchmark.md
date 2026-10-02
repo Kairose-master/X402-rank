@@ -67,3 +67,80 @@ The CLI is offline: it reads the same saved snapshot for both systems, invokes n
 ```
 
 The checked-in Node tests use synthetic fixtures solely to test determinism and validation. They are not benchmark results. Keep a real task set and its raw inputs distinct from tests, document the source snapshot and native-search capture, and never characterize a fixture result as a live Bazaar comparison.
+
+## Unscored live capture and archive import
+
+`benchmarks/live-plan.json` freezes three tasks (weather forecast, web search,
+cryptocurrency price), a Base USDC budget of 50,000 atomic units, and a deterministic
+metadata-only candidate-pool rule. Commit this plan before fetching data. Neither
+capture nor import imports the ranker or calculates scores.
+
+```sh
+npm run benchmark:capture -- --out benchmarks/captures/<unique-run>
+```
+
+This GET-only path uses the existing complete catalog/Doctor collector and adds
+CDP `/discovery/search?query=...&type=http&limit=20` for each task. It saves exact
+successful JSON response bytes, SHA-256, URL, HTTP status, and capture timestamp.
+The archive binds the frozen plan and serialized harness snapshot to those files.
+A run must finish within 30 minutes; catalog totals must remain consistent and
+native results must exist with identical explicit metadata in the catalog.
+This is a bounded capture window, **not an atomic upstream snapshot**. Recapture
+on drift. The API limits native search to 20; `partialResults` and `searchMethod`
+are retained, so this is a judged-pool comparison, not whole-catalog recall.
+
+`judgment-cards.json` contains only IDs and explicit name/description/tags.
+Before viewing any scores, judge **every** card using the existing 0–3 rubric and
+save a separate JSON file:
+
+```json
+{
+  "schemaVersion": 1,
+  "snapshotSha256": "<from archive.snapshot.sha256>",
+  "annotation": {
+    "annotator": "<actual reviewer>",
+    "frozenAt": "<actual post-capture, pre-score ISO timestamp>",
+    "scoringNotViewed": true
+  },
+  "tasks": [{
+    "id": "weather",
+    "candidates": [{
+      "id": "<exact card ID>",
+      "grade": 3,
+      "sourceField": "description",
+      "evidence": "<verbatim quote>"
+    }]
+  }]
+}
+```
+
+The example is a shape only, not actual judgments. Include all three tasks and
+all their candidates. Doctor, price, URL wording, quality counters and inferred
+seller behavior must not supply relevance evidence. An annotation declaration
+records provenance; it cannot prove a reviewer never saw scores.
+
+```sh
+npm run benchmark:import -- --capture benchmarks/captures/<unique-run> \
+  --judgments benchmarks/judgments.json --out benchmarks/tasks.json
+# Review and commit the archive, judgments and imported manifest BEFORE scoring.
+npm run benchmark -- --snapshot benchmarks/captures/<unique-run>/snapshot.json \
+  --labels benchmarks/tasks.json --out benchmarks/results.json
+```
+
+Import checks every archived response hash, reconstructs catalog/Doctor inputs,
+checks capture provenance and exact candidate membership, and derives native order
+from the bound native response rather than accepting a manually entered order.
+It then calls the original harness validation. It refuses to overwrite an existing
+manifest. A failed capture writes `FAILED.json`, never a valid archive or metrics.
+
+### 2026-10-02 capture status
+
+The checked-in attempt under `benchmarks/captures/2026-10-02-attempt` failed at
+the catalog request because this execution environment returned a `text/html`
+`Site Unavailable` response (HTTP 200). A separate native-search request returned
+the same HTML. These are access failures in this environment, not evidence that
+Coinbase's service is globally unavailable. No catalog, native JSON, labels or live
+metrics were obtained. No historical 2026-09-30 data has been reconstructed.
+The added archive/import regressions use synthetic protocol data and do not count
+as a real benchmark. The live-data work remains incomplete until a successful
+capture is supplied from an environment with public CDP access.

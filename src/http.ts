@@ -1,5 +1,6 @@
 /** Read-only upstream transport. Never call seller endpoints or payment routes. */
 export const BAZAAR_URL = "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources";
+export const BAZAAR_SEARCH_URL = "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search";
 export const DOCTOR_API = "https://x402-doctor.fizzl.eu/api/trust";
 export const DOCTOR_INDEX = "https://raw.githubusercontent.com/Fizzl13/x402-doctor/trust-data/index.json";
 export const DOCTOR_SUMMARY = `${DOCTOR_API}/summary`;
@@ -31,7 +32,7 @@ export class HttpError extends Error {
 export async function fetchJson(target: string, options: HttpOptions = {}): Promise<unknown> {
   const url = new URL(target);
   const base = `${url.origin}${url.pathname}`;
-  if (![BAZAAR_URL, DOCTOR_API, DOCTOR_SUMMARY, DOCTOR_INDEX].includes(base) || url.username || url.password || url.hash) {
+  if (![BAZAAR_URL, BAZAAR_SEARCH_URL, DOCTOR_API, DOCTOR_SUMMARY, DOCTOR_INDEX].includes(base) || url.username || url.password || url.hash) {
     throw new Error("Upstream URL is not allowlisted");
   }
   const retries = options.retries ?? 2;

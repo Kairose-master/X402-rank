@@ -12,7 +12,9 @@
     "test:ingestion": "npm run build && node --test test/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "rank": "npm run build --silent && node scripts/rank.mjs",
-    "benchmark": "npm run build --silent && node scripts/benchmark.mjs"
+    "benchmark": "npm run build --silent && node scripts/benchmark.mjs",
+    "benchmark:capture": "npm run build --silent && node scripts/capture-benchmark.mjs",
+    "benchmark:import": "npm run build --silent && node scripts/import-benchmark.mjs"
   },
   "devDependencies": {
     "typescript": "5.9.2",
