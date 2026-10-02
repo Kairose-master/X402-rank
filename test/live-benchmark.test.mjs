@@ -24,6 +24,10 @@ test('real CDP capture verifies provenance and replays the frozen benchmark metr
     assert.deepEqual(frozen.nativeOrder, task.nativeOrder);
     assert.deepEqual(frozen.candidates.map(c => c.id).sort(), task.cards.map(c => c.id).sort());
     assert.deepEqual(frozen.nativeCapture, task.nativeCapture);
+    assert.equal(task.searchMethod, 'hybrid');
+    assert.equal(task.partialResults, false);
+    assert.equal(frozen.nativeSearchMethod, task.searchMethod);
+    assert.equal(frozen.nativePartialResults, task.partialResults);
   }
   const temp = await mkdtemp(join(tmpdir(), 'real-benchmark-'));
   try {

@@ -29,7 +29,7 @@ Native order coverage of the judged pool is 65.22%, 60.00%, 52.38%;
 X402-rank eligible coverage is 95.65%, 96.00%, 90.48%. The pool deliberately adds
 catalog lexical matches outside the native response. The higher X402-rank pool
 coverage therefore does **not** establish higher whole-catalog retrieval recall.
-All native responses report `partialResults: false`, with `searchMethod: text`.
+All native responses report `partialResults: false`, with `searchMethod: hybrid`.
 The requested API limit is 20; actual native response counts are retained above.
 
 ## Operational context — separate from relevance
