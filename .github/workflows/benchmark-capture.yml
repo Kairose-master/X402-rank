@@ -1,0 +1,34 @@
+name: Unscored live benchmark capture
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/live-plan.json'
+      - 'scripts/*benchmark*.mjs'
+      - '.github/workflows/benchmark-capture.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Capture catalog, Doctor and native search without scoring
+        run: npm run benchmark:capture -- --out benchmarks/captures/actions-${{ github.run_id }}
+      - name: Preserve unscored inputs or failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-unscored-${{ github.run_id }}
+          path: benchmarks/captures/actions-*
+          if-no-files-found: error
+          retention-days: 7
