@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
+import { gunzipSync } from 'node:zlib';
 import { resolve, sep } from 'node:path';
 import { normalizeResource, parseBazaarPage } from '../dist/bazaar.js';
 import { BAZAAR_URL, BAZAAR_SEARCH_URL, DOCTOR_INDEX } from '../dist/http.js';
@@ -22,17 +23,19 @@ export function nativeIds(raw) {
 }
 
 export function metadataPool(snapshot, rawSearch, query) {
-  const resources = new Map();
+  const resources = new Map(), ambiguous = new Set();
   for (const raw of snapshot.catalog.items) {
     try {
       const r = normalizeResource(raw);
-      if (resources.has(r.id) && JSON.stringify(resources.get(r.id).raw) !== JSON.stringify(raw)) throw new Error('Conflicting catalog duplicate');
-      resources.set(r.id, r);
-    } catch (error) { if (error.message === 'Conflicting catalog duplicate') throw error; }
+      const previous = resources.get(r.id);
+      if (previous && ['serviceName', 'description', 'tags'].some(field => JSON.stringify(previous.raw[field]) !== JSON.stringify(raw[field]))) ambiguous.add(r.id);
+      if (!previous) resources.set(r.id, r);
+    } catch {}
   }
   const ids = nativeIds(rawSearch);
   for (const raw of rawSearch.resources) {
     const r = normalizeResource(raw), catalog = resources.get(r.id);
+    if (ambiguous.has(r.id)) throw new Error(`Ambiguous native metadata: ${r.id}`);
     if (!catalog) throw new Error(`Native result missing from same-window catalog: ${r.id}`);
     for (const field of ['serviceName', 'description', 'tags']) {
       if (JSON.stringify(raw[field]) !== JSON.stringify(catalog.raw[field])) throw new Error(`Catalog/search metadata drift: ${r.id}`);
@@ -40,6 +43,7 @@ export function metadataPool(snapshot, rawSearch, query) {
   }
   const q = tokens(query);
   const extra = [...resources.values()].filter(r => {
+    if (ambiguous.has(r.id)) return false;
     const raw = r.raw;
     const text = tokens([raw.serviceName ?? '', raw.description ?? '', ...(Array.isArray(raw.tags) ? raw.tags : [])].join(' '));
     return [...q].some(t => text.has(t));
@@ -54,7 +58,8 @@ export async function readBound(root, entry) {
   if (!entry || typeof entry.file !== 'string' || !/^[a-f0-9]{64}$/.test(entry.sha256)) throw new Error('Invalid archive entry');
   const path = resolve(root, entry.file);
   if (!path.startsWith(resolve(root) + sep)) throw new Error('Archive path escapes root');
-  const bytes = await readFile(path);
+  const stored = await readFile(path);
+  const bytes = entry.encoding === 'gzip' ? gunzipSync(stored, { maxOutputLength: 256 * 1024 * 1024 }) : stored;
   if (sha256(bytes) !== entry.sha256) throw new Error(`Archive SHA mismatch: ${entry.file}`);
   return JSON.parse(bytes);
 }
