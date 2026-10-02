@@ -1,0 +1,815 @@
+[
+  {
+    "id": "weather",
+    "query": "weather forecast",
+    "cards": [
+      {
+        "id": "GET https://x402.agentindex.world/weather",
+        "serviceName": "weather-forecast",
+        "description": "Current weather and a 3-day forecast for any city or lat/lon - temperature, humidity, wind, conditions. No account, no API key. Try GET /weather/sample.",
+        "tags": [
+          "weather",
+          "forecast",
+          "temperature",
+          "climate",
+          "open data"
+        ]
+      },
+      {
+        "id": "GET https://api.kadec0.xyz/v1/weather",
+        "serviceName": "Weather Forecast & Air Quality",
+        "description": "Weather forecast and air quality for any location worldwide. Returns current conditions plus a 16-day daily weather forecast - temperature highs and lows, precipitation, and wind - alongside air-quality readings including AQI, PM2.5, PM10, and ozone, for any latitude and longitude. Daily forecast resolution. Keyless, via Open-Meteo.",
+        "tags": [
+          "weather",
+          "forecast",
+          "air-quality",
+          "meteorology",
+          "climate"
+        ]
+      },
+      {
+        "id": "GET https://wallet-services-poc-clean-mainnet.3hz-services.workers.dev/weather",
+        "serviceName": "3HZ Global Weather Forecast",
+        "description": "Global weather forecast for latitude and longitude. Returns the forecast valid now, all available hourly forecast points, and the extended forecast in native 6-hour periods without inventing hourly precision. Data source: MET Norway Locationforecast 2.0.",
+        "tags": [
+          "weather",
+          "forecast",
+          "meteorology",
+          "hourly-weather",
+          "global-weather"
+        ]
+      },
+      {
+        "id": "POST https://intel.rallylive.ca/data/forecast",
+        "serviceName": "weather-forecast",
+        "description": "7-day daily weather forecast for a place: high and low temperature, precipitation sum and probability, max wind, sunrise/sunset and condition per day, with the resolved location. Free Open-Meteo data. $0.01 per lookup.",
+        "tags": [
+          "forecast",
+          "weather",
+          "7-day",
+          "daily",
+          "open-meteo"
+        ]
+      },
+      {
+        "id": "GET https://weather.cyberwarex.com/forecast",
+        "serviceName": "Weather",
+        "description": "Weather forecast for a location (global, keyless): current conditions, an hourly series (up to 48h) and a daily summary (up to 10 days: min/max temp + condition), from met.no. Pass lat+lon, or a place name. For travel, logistics, events, energy. No API key.",
+        "tags": [
+          "weather",
+          "forecast",
+          "hourly",
+          "daily",
+          "metno"
+        ]
+      },
+      {
+        "id": "GET https://netintel.dev/weather/forecast",
+        "serviceName": "NetIntel",
+        "description": "Multi-day weather forecast for any city or lat/lon worldwide — up to 16 days of daily highs/lows, precipitation & probability, UV, sunrise/sunset, wind, and plain-language conditions, plus optional next-24h hourly. Give a city name (geocoded) or coordinates. No API key, metric or imperial. Pass params as query (GET) or a JSON body (POST).",
+        "tags": [
+          "weather forecast",
+          "forecast",
+          "7 day forecast",
+          "hourly weather",
+          "precipitation"
+        ]
+      },
+      {
+        "id": "GET https://agent402.tools/api/weather-forecast",
+        "serviceName": "Weather forecast (US)",
+        "description": "Multi-period weather forecast for a US location from api.weather.gov (NWS, public domain). Give latitude and longitude; returns the place plus upcoming forecast periods (temp, wind, conditions). US coverage only.",
+        "tags": [
+          "data",
+          "weather",
+          "forecast",
+          "nws",
+          "noaa"
+        ]
+      },
+      {
+        "id": "GET https://data.intel.rallylive.ca/data/forecast/hamilton",
+        "serviceName": "weather-forecast-hamilton",
+        "description": "7-day weather forecast for Hamilton: daily highs and lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Hamilton without an API key. $0.01 per call.",
+        "tags": [
+          "forecast",
+          "weather",
+          "7-day",
+          "planning",
+          "hamilton"
+        ]
+      },
+      {
+        "id": "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-weather",
+        "serviceName": "Weather Now + Forecast",
+        "description": "Weather forecast API — current conditions plus hourly and 3-day weather forecast with temperature, wind and humidity for any city worldwide; live weather data for agents. Deterministic on-chain execution by the AmanChain node — live consensus state, real blocks, pools and balances. Pay per call via x402 (USDC on Base), no account, no API key. POST JSON {\"serviceId\":\"aman-weather\",\"request\":\"<input>\"}.",
+        "tags": [
+          "data",
+          "weather",
+          "forecast",
+          "climate",
+          "geo"
+        ]
+      },
+      {
+        "id": "GET https://api.agentstools.dev/forecast",
+        "serviceName": "us-forecast",
+        "description": "Official US weather forecast from the National Weather Service (NOAA): multi-day and hourly periods for any US coordinates or street address. Temperature in Celsius and Fahrenheit, precipitation probability, wind speed and direction, and plain-language conditions. Authoritative government public-domain data, commercial use OK.",
+        "tags": [
+          "weather",
+          "forecast",
+          "us",
+          "nws",
+          "noaa"
+        ]
+      },
+      {
+        "id": "GET https://agent402.tools/api/weather-daily",
+        "serviceName": "Daily forecast (global)",
+        "description": "7-day daily weather forecast for any location: high/low temp, precipitation sum and probability, max wind, UV index, sunrise/sunset. Open-Meteo, no key, global.",
+        "tags": [
+          "data",
+          "weather",
+          "forecast",
+          "daily",
+          "global"
+        ]
+      },
+      {
+        "id": "GET https://intel.rallylive.ca/data/forecast/forecastdenver",
+        "serviceName": "weather-forecast-denver",
+        "description": "7-day weather forecast for Denver: daily highs, lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Denver without an API key. $0.01 per call.",
+        "tags": [
+          "forecast",
+          "denver",
+          "weather",
+          "7-day",
+          "planning"
+        ]
+      },
+      {
+        "id": "GET https://data.intel.rallylive.ca/data/forecast/montreal",
+        "serviceName": "weather-forecast-montreal",
+        "description": "7-day weather forecast for Montreal: daily highs and lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Montreal without an API key. $0.01 per call.",
+        "tags": [
+          "forecast",
+          "weather",
+          "7-day",
+          "planning",
+          "montreal"
+        ]
+      },
+      {
+        "id": "POST https://twin.unykorn.org/geo/weather-forecast",
+        "serviceName": "",
+        "description": "Daily weather forecast up to 16 days: highs, lows, rain chance, wind, UV, sunrise/sunset — Genesis402 / UnyKorn Operator Network",
+        "tags": [
+          "weather",
+          "forecast",
+          "planning",
+          "events",
+          "infra"
+        ]
+      },
+      {
+        "id": "GET https://data.intel.rallylive.ca/data/forecast/sudbury",
+        "serviceName": "weather-forecast-sudbury",
+        "description": "7-day weather forecast for Sudbury: daily highs and lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Sudbury without an API key. $0.01 per call.",
+        "tags": [
+          "forecast",
+          "weather",
+          "7-day",
+          "planning",
+          "sudbury"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/aviation/taf",
+        "serviceName": "2s",
+        "description": "Terminal Aerodrome Forecast (TAF) for one or more airports — the official aviation forecast issued for an airport (~24–30h ahead). Pass ids = comma-separated ICAO station ids (e.g. KATL). Returns the raw TAF text + issue time. Source: NOAA Aviation Weather Center (keyless). For current conditions use aviation.metar.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/weather/current",
+        "serviceName": "2s",
+        "description": "Current weather conditions for any coordinate worldwide. Pass lat + lon (and optional units=metric|imperial, default metric). Returns temperature, feels-like, humidity, precipitation (rain/snow), cloud cover, sea-level pressure, wind speed/direction/gusts, day/night flag, and a human-readable conditions label from the WMO weather code — with local time + timezone. Global coverage (not just US — for US-only NWS data see weather.zip / weather.forecast). Source: Open-Meteo (CC BY 4.0).",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/weather/forecast",
+        "serviceName": "2s",
+        "description": "Official US weather forecast for a coordinate (US land + territories). Pass lat + lon. Returns the National Weather Service forecast as a list of periods — by default ~7 days of day/night periods; pass hourly=true for an hour-by-hour forecast. Each period gives the temperature + unit, wind speed/direction, chance of precipitation, and a short + detailed forecast, plus the resolved city/state and issuing office. Source: US National Weather Service (api.weather.gov), public domain. For active warnings use weather.alerts.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/weather/zip",
+        "serviceName": "2s",
+        "description": "Current weather conditions for a US ZIP code (temperature, wind, humidity, conditions). Backed by the US National Weather Service (api.weather.gov) — public domain, no rate-limit pressure on commercial use.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://aeml-x402.zeabur.app/stable/graveyard",
+        "serviceName": "Truth Bear",
+        "description": "[BATCH+PROOF] Stablecoin death register - terminated below 0.10 or persistently absent. Add ?verifiable=1 for per-row _hash_core, fully offline-recomputable. A neutral observation record: not a rating, not an endorsement. Descriptive only, never a forecast or advice. No data -> 422 no_charge, not billed. $0.09 per call.",
+        "tags": [
+          "stable",
+          "graveyard",
+          "no-data-no-charge",
+          "offline-recomputable",
+          "descriptive-only"
+        ]
+      },
+      {
+        "id": "GET https://agent402.tools/api/weather-air-quality",
+        "serviceName": "Air quality (global)",
+        "description": "Current air quality index and pollutant concentrations for any location: US AQI, PM2.5, PM10, ozone, NO2, SO2, CO. Open-Meteo air quality API, no key, global.",
+        "tags": [
+          "data",
+          "weather",
+          "air-quality",
+          "aqi",
+          "pollution"
+        ]
+      },
+      {
+        "id": "GET https://agent402.tools/api/weather-alerts",
+        "serviceName": "US weather alerts",
+        "description": "Active National Weather Service alerts for a US state as clean JSON: event, severity, headline, affected areas, onset/expiry. Live government data, no key.",
+        "tags": [
+          "data",
+          "weather",
+          "alerts",
+          "nws",
+          "noaa"
+        ]
+      },
+      {
+        "id": "GET https://agent402.tools/api/weather-current",
+        "serviceName": "Current weather (global)",
+        "description": "Current weather conditions for any location on Earth: temperature, feels-like, humidity, wind speed/direction/gusts, precipitation, cloud cover, pressure, and human-readable condition. Open-Meteo, no key, global.",
+        "tags": [
+          "data",
+          "weather",
+          "current",
+          "temperature",
+          "wind"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web",
+    "query": "web search",
+    "cards": [
+      {
+        "id": "GET https://websearch.use.x402atlas.com/search",
+        "serviceName": "Web Search, News & Page Reader",
+        "description": "Real-time web search for AI agents — search the web and get ranked SERP-style results as clean JSON: title, URL, snippet, relevance score, optional LLM-generated answer. Find up-to-date information online — latest news, current events, finance. Date, domain and exact-phrase filters.",
+        "tags": [
+          "web-search",
+          "search",
+          "serp",
+          "web",
+          "internet-search"
+        ]
+      },
+      {
+        "id": "POST https://x402.agentindex.world/search",
+        "serviceName": "web-search",
+        "description": "Web search: search the web and get ranked results with page content. Up to 10 results with title, URL, snippet and publish date, plus clean full-page Markdown for the top 3 by default. Up to 5 queries per call, merged and de-duplicated. Each query is routed by Jev to the best specialised source (code, facts, news, prices, weather). No account, no API key. Try GET /search/sample. Part of the AgentIndex content kit (pdf, web-read, extract, summarize, detect-language) - see GET /capabilities.",
+        "tags": [
+          "search",
+          "web-search"
+        ]
+      },
+      {
+        "id": "GET https://webtools402.176-109-107-191.sslip.io/search",
+        "serviceName": "web-search",
+        "description": "Free-text web search for AI agents: ranked title/url/snippet results fused across multiple engines (Brave, Google, DuckDuckGo, Mojeek, Startpage, Yahoo), with freshness filters (past day/week/month/year), region/locale and SafeSearch. One call for grounded, up-to-date web results — no keys, no scraping setup.",
+        "tags": [
+          "web",
+          "search",
+          "web-search",
+          "serp",
+          "results"
+        ]
+      },
+      {
+        "id": "POST https://search.openverbs.com/v1/web",
+        "serviceName": "Web Search (Google SERP)",
+        "description": "Web search API - live Google (default) or Bing SERP for a query: search engine results returned as ranked organic hits with title, URL, domain and snippet, localised by location and language. A google search api / serp api for agents: search the web, live web search for grounding, RAG and web lookup.",
+        "tags": [
+          "search",
+          "web-search",
+          "google-search",
+          "serp",
+          "search-engine"
+        ]
+      },
+      {
+        "id": "GET https://api.kadec0.xyz/v1/serp",
+        "serviceName": "Web Search (SERP)",
+        "description": "Web search results (SERP). Keyless web search returning ranked title, URL, and snippet for a query — with locale/region targeting, freshness filters (past day, week, month, year), pagination, a news mode that adds publish date and source, and selectable backend engine (auto rotation, or pin Brave, Yahoo, or Yandex).",
+        "tags": [
+          "search",
+          "web-search",
+          "web",
+          "serp",
+          "search-results"
+        ]
+      },
+      {
+        "id": "GET https://x402tap.com/api/web-search",
+        "serviceName": "x402 Web Search",
+        "description": "Real-time web search (via Exa) — ranked results with title, URL, published date, author, and relevance score for a query",
+        "tags": [
+          "search",
+          "web-search",
+          "data",
+          "ai"
+        ]
+      },
+      {
+        "id": "GET https://api.agentstools.dev/search",
+        "serviceName": "web-search",
+        "description": "Free-text web search for AI agents: ranked title/url/snippet results fused across multiple engines (Brave, Google, DuckDuckGo, Mojeek, Startpage, Yahoo), with freshness filters (past day/week/month/year), region/locale and SafeSearch. One call for grounded, up-to-date web results — no keys, no scraping setup.",
+        "tags": [
+          "web",
+          "search",
+          "web-search",
+          "serp",
+          "results"
+        ]
+      },
+      {
+        "id": "GET https://4yearcycle.com/x402/web-search",
+        "serviceName": "Web Search",
+        "description": "General web search reselling the Tavily Search API: query the live web and get back ranked results (title, URL, snippet, relevance score) plus an optional short synthesized answer, with basic or advanced search depth and optional domain include/exclude filters.",
+        "tags": [
+          "search",
+          "web",
+          "tavily",
+          "reseller"
+        ]
+      },
+      {
+        "id": "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-web-search",
+        "serviceName": "Live Web Search",
+        "description": "Web search API — live web search engine results for any query with titles, URLs and snippets; real-time SERP for web search, news search and docs search, agent-ready. Deterministic on-chain execution by the AmanChain node — live consensus state, real blocks, pools and balances. Pay per call via x402 (USDC on Base), no account, no API key. POST JSON {\"serviceId\":\"aman-web-search\",\"request\":\"<input>\"}.",
+        "tags": [
+          "web",
+          "search",
+          "serp",
+          "query",
+          "news"
+        ]
+      },
+      {
+        "id": "GET https://search.cyberwarex.com/search",
+        "serviceName": "x402 Web Search",
+        "description": "Web search that returns structured SERP results as JSON. Runs on a dedicated SearXNG instance aggregating multiple engines, so there is no per-engine API key, quota or HTML scraping to manage. Each result carries title, URL, snippet, the source engine and a published date where available. Choose general web, news, or image results, up to 10 per call. Use it to ground an answer in current web sources, research a topic, or monitor news on a query.",
+        "tags": [
+          "web-search",
+          "serp",
+          "search-engine",
+          "news-search",
+          "research"
+        ]
+      },
+      {
+        "id": "GET https://websearch.use.x402atlas.com/search/advanced",
+        "serviceName": "Web Search, News & Page Reader",
+        "description": "Deep web research for AI agents — advanced search returning the highest-relevance results with multiple query-focused snippets per source, plus an optional LLM-generated answer grounded in the returned sources when include_answer is set. One-call research assistant for high-precision queries; news and finance topics, date and domain filters.",
+        "tags": [
+          "web-search",
+          "search",
+          "serp",
+          "web",
+          "internet-search"
+        ]
+      },
+      {
+        "id": "GET https://402.com.tr/api/x402/web-search",
+        "serviceName": "Web Search",
+        "description": "Search the live web from an agent that has no browser: pass query= and get back ranked results (title, URL, snippet, relevance score) plus a synthesized one-paragraph answer over them. maxResults=1..20 (default 5); includeAnswer=false to skip the summary and take sources only. The step before reasoning about anything that happened after the model's training cutoff — prices, releases, incidents, docs. Nothing crypto about it.",
+        "tags": [
+          "web",
+          "scraping",
+          "extraction",
+          "content",
+          "search"
+        ]
+      },
+      {
+        "id": "POST https://x402-echo-service.onrender.com/web/search",
+        "serviceName": "Open Web Search",
+        "description": "Web search for agents. POST a JSON body with a \"query\" string and an optional \"limit\" (1-20); returns ranked results, each with a title, url and text snippet. Keyword and semantic matching, no API key required, billed per call: $0.001000 USDC.",
+        "tags": [
+          "web-search",
+          "search",
+          "agents",
+          "research",
+          "retrieval"
+        ]
+      },
+      {
+        "id": "GET https://pennyregwatch.com/v1/search",
+        "serviceName": "PennyAPI Web Search",
+        "description": "Real-time web search for AI agents. Search the web for current and up-to-date information, news, facts, research, documentation, and sources beyond model training data. Returns ranked structured JSON results with title, URL, description, and position for web grounding, RAG retrieval, research, and fact-finding. Send query, optional limit, and optional freshness as URL parameters. Keyless x402 pay-per-call; no API key, account, or subscription required.",
+        "tags": [
+          "web-search",
+          "search",
+          "serp",
+          "research",
+          "real-time"
+        ]
+      },
+      {
+        "id": "GET https://search.agent.s.brave.app/res/v1/web/search",
+        "serviceName": "Brave Search",
+        "description": "Web search over Brave's independent index. Returns ranked pages with title, URL, and snippet, plus news, video, and discussion results when relevant. Use it to find current sources on any topic. Pass q, and optionally count, offset, country, search_lang, and freshness.",
+        "tags": [
+          "search",
+          "web",
+          "news",
+          "images",
+          "llm"
+        ]
+      },
+      {
+        "id": "GET https://2s-rjsw718bb-alleyford.vercel.app/api/space/satellites",
+        "serviceName": "",
+        "description": "Search the catalog of every cataloged Earth-orbiting object — ~69,000 satellites, rocket bodies, and debris tracked by US Space Force / 18 SDS (via CelesTrak SATCAT). Filter by name (q, e.g. \"starlink\"), owner/launching country (owner — code like US/PRC/CIS or a name like \"china\"), object type (type = payload | rocket body | debris | unknown), launch-year range (launchYearFrom/launchYearTo), international/COSPAR designator prefix (intlDesignator, e.g. \"2024-\"), on-orbit vs decayed (onOrbit), or exact NORAD number (noradId). Each result carries the NORAD id, name, international designator, object type, owner + resolved country, launch date + site, decay date (null = still in orbit), and orbital parameters (period, inclination, apogee, perigee). The envelope total is the full count matching your filter — so onOrbit=true&type=payload answers \"how many active satellites are up there\", and owner=PRC tells you who launched them. For a satellite's live sub-point position, pass its noradId to /api/space/satellite.",
+        "tags": []
+      },
+      {
+        "id": "GET https://2s.io/api/bank/lookup",
+        "serviceName": "2s",
+        "description": "FDIC-insured US bank directory lookup. Lookup by name (fuzzy match), FDIC certificate number, RSSD ID, or state. Each record includes name + short name, web address, active flag, city/state/county/zip, established + insured dates, charter class, bank class, primary federal regulator, number of branches, assets and deposits ($1000s), and closed-date + reason for inactive institutions. Public-domain FDIC data, free.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/business/naics",
+        "serviceName": "2s",
+        "description": "Look up or search NAICS 2022 industry classification codes (US Census Bureau, public domain). Pass `code` for an exact NAICS code — 2–6 digits or a combined sector like 31-33 — and get its official title, hierarchy path, full official description, activity index terms, and direct child codes. Or pass `query` for free-text search (e.g. 'software publishers', 'coffee shop') over titles plus the official ~20k-entry activity index → ranked candidate codes, optionally filtered by `level` (2=sector … 6=national industry). Ground truth for industry coding in KYC, business registration, government filings, and ERP vendor/customer setup.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/business/no-companies",
+        "serviceName": "2s",
+        "description": "Official Norwegian company registry search (Brønnøysund Enhetsregisteret). Search by company name. Each result: organisation number, name, organisation form, primary industry (NACE), employee count, registration date, website, bankruptcy and dissolution flags, and business address. Free, NLOD/CC BY 4.0. The authoritative NO company lookup — complements business.uk-companies and business.lei.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/business/uk-companies",
+        "serviceName": "2s",
+        "description": "Official UK company registry (Companies House). Two modes: pass query to search companies by name (returns company number, name, status, type, incorporation date, address), or pass companyNumber for the full registry profile — legal name, status, company type, jurisdiction, incorporation/cessation dates, SIC activity codes, registered office address, accounts (next due, last made-up-to), confirmation-statement due date, charges and insolvency flags, previous names, and the officers list (name, role, appointed/resigned dates, nationality, occupation). Free, Open Government Licence (commercial use permitted). The authoritative UK-company KYB lookup — complements business.lei (GLEIF) and business.br-cnpj (Brazil).",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/chinese/pinyin",
+        "serviceName": "2s",
+        "description": "Convert Chinese (Hanzi) text to pinyin romanization. Choose tone marks (symbol, e.g. hàn yǔ), numbered tones (han4 yu3), or no tones. Auto-segments words and returns the full pinyin string plus a per-syllable array. Deterministic, keyless — useful for transliteration, pronunciation, search indexing, and TTS prep.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/edu/school-lookup",
+        "serviceName": "2s",
+        "description": "Look up any US public K-12 school (~102k, NCES Common Core of Data). Search by name (partial), district (LEA name, partial), state (2-letter), city, zip, or exact ncessch (12-digit NCES id). Each school: NCES id, name, district + LEA id, address, phone, lat/lon, school level (1=primary 2=middle 3=high 4=other) and type (1=regular 2=special-ed 3=vocational 4=alternative), charter/magnet/virtual flags, enrollment, teacher FTE, grade span, CCD year. Results ordered by enrollment. Higher-ed sibling: /api/edu/college-scorecard. Public-domain federal data.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/factcheck/search",
+        "serviceName": "2s",
+        "description": "Search the global corpus of published fact-checks (ClaimReview) by free-text claim. Returns matching claims with the claimant, claim date, and each fact-check review's verdict (textualRating, e.g. \"False\", \"Misleading\", \"True\"), the publisher (PolitiFact, Snopes, FactCheck.org, Reuters Fact Check, AFP, …), the review URL, and review date. Covers every topic — politics, health, science, viral and misinformation claims. Optional language, recency (maxAgeDays), and publisher-site filters. Aggregated by Google from publishers' schema.org ClaimReview data. Use it to check whether a claim has been independently fact-checked and how it was rated, rather than asserting from training data.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/finance/figi-search",
+        "serviceName": "2s",
+        "description": "Free-text search for securities across global exchanges via OpenFIGI. Give a query (company name, ticker, description) and optionally narrow by exchCode (e.g. US), securityType, or marketSector (Equity, Corp, Govt, Mtge, Muni, Pfd, Comdty, Index, Curncy). Returns relevance-ranked matches with FIGI, composite/share-class FIGI, name, ticker, exchange, security type, market sector, and description, plus a `next` cursor for paging (pass it back as start). Free, open symbology (Bloomberg OpenFIGI). Distinct from finance.figi (exact identifier → FIGI): this is discovery by name/keyword.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/github/search-code",
+        "serviceName": "2s",
+        "description": "Search code across GitHub with the code-search syntax (e.g. 'defineEndpoint repo:AlleyFord/2s' or 'addEventListener language:js'). Returns total match count + file name, path, repository, and URL for each hit. Read-only; no caller key needed.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "crypto",
+    "query": "cryptocurrency price",
+    "cards": [
+      {
+        "id": "GET https://intel.rallylive.ca/crypto-price",
+        "serviceName": "crypto-price-lookup",
+        "description": "Crypto price lookup: current USD price of bitcoin, ethereum, solana, USDC and other major coins by name or symbol, with 24-hour change, high, low and volume from Coinbase public market data (CoinGecko fallback). Live cryptocurrency price for agents, no API key. $0.01 per lookup.",
+        "tags": [
+          "crypto",
+          "price",
+          "bitcoin",
+          "ethereum",
+          "market"
+        ]
+      },
+      {
+        "id": "POST https://intel.rallylive.ca/data/crypto",
+        "serviceName": "crypto-price",
+        "description": "Cryptocurrency price: current USD price, 24h change, market cap and 24h volume for a coin by id or symbol (bitcoin, ethereum, solana, usdc and 100+ others) from CoinGecko's free API. $0.01 per lookup.",
+        "tags": [
+          "crypto",
+          "price",
+          "bitcoin",
+          "ethereum",
+          "market"
+        ]
+      },
+      {
+        "id": "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-crypto-price",
+        "serviceName": "Crypto Token Price",
+        "description": "Bitcoin price and live USD spot price for any major cryptocurrency — BTC, ETH, SOL and 100+ assets; real-time single-token price API with 24h change. Deterministic on-chain execution by the AmanChain node — live consensus state, real blocks, pools and balances. Pay per call via x402 (USDC on Base), no account, no API key. POST JSON {\"serviceId\":\"aman-crypto-price\",\"request\":\"<input>\"}.",
+        "tags": [
+          "data",
+          "crypto",
+          "price",
+          "market-data"
+        ]
+      },
+      {
+        "id": "GET https://agent402.tools/api/crypto-price",
+        "serviceName": "Crypto price",
+        "description": "Live spot price for one or many coins in any quote currency: last price, 24h change, 24h volume and market cap per coin, from a maintained market feed and answered in under a second. Use it when an agent needs a current crypto price to size, compare or display, or a cheap read to poll on a schedule.",
+        "tags": [
+          "data",
+          "crypto",
+          "price",
+          "market-data",
+          "bitcoin"
+        ]
+      },
+      {
+        "id": "GET https://x402tap.com/api/crypto-price",
+        "serviceName": "x402 Crypto Price Lookup",
+        "description": "Look up current price, 24h change, and market cap for one or more cryptocurrencies",
+        "tags": [
+          "crypto",
+          "price",
+          "finance",
+          "market-data"
+        ]
+      },
+      {
+        "id": "GET https://netintel.dev/crypto/price",
+        "serviceName": "NetIntel",
+        "description": "Crypto prices for up to 25 coins in one call — live cryptocurrency spot prices for BTC, ETH, SOL and more in USD, EUR, or GBP from Coinbase with Kraken and CoinGecko fallback; no API key, one flat price. Per asset: price, 24h change when the source provides it, source, cache age. 30s cache; unknown symbols land in unresolved without failing the call. 25 prices for one $0.005 call vs 25 single-symbol lookups.",
+        "tags": [
+          "crypto price",
+          "token price",
+          "coin price",
+          "spot price",
+          "bitcoin price"
+        ]
+      },
+      {
+        "id": "GET https://api.kadec0.xyz/v1/token-price",
+        "serviceName": "Crypto Token Price Data",
+        "description": "Crypto token price and market data. Returns the live price of one or many tokens by coin id or ticker symbol, in a chosen vs-currency, with market cap, 24-hour volume, and 24-hour price change. For crypto price lookups, portfolio valuation, and market data feeds. Keyless, via CoinPaprika.",
+        "tags": [
+          "price",
+          "crypto",
+          "token-price",
+          "market-data",
+          "coinpaprika"
+        ]
+      },
+      {
+        "id": "GET https://5108-x402.community.iamstarchild.com/bazaar/crypto/price",
+        "serviceName": "",
+        "description": "Get real-time spot price and market data for a cryptocurrency",
+        "tags": []
+      },
+      {
+        "id": "GET https://chain.intel.rallylive.ca/token/price",
+        "serviceName": "token-price",
+        "description": "Current USD price of any ERC-20 token by contract address (deepest DEX pair), with 24h change, liquidity and market cap. Default chain Base; prefix another: ethereum:, arbitrum:, optimism:, polygon:, bsc:. $0.01 per call.",
+        "tags": [
+          "crypto",
+          "price",
+          "token",
+          "usd",
+          "dex"
+        ]
+      },
+      {
+        "id": "POST https://currency-api-production-4a8d.up.railway.app/crypto/price",
+        "serviceName": "",
+        "description": "Current price, market cap, and 24h change for a single cryptocurrency by symbol or name (CoinGecko).",
+        "tags": []
+      },
+      {
+        "id": "POST https://crypto.openverbs.com/v1/history",
+        "serviceName": "Crypto Price History",
+        "description": "Token price history: historical USD price series (price chart data) for one coin/token by coin id (e.g. \"coingecko:bitcoin\", \"ethereum:0xdAC17…\"). Returns evenly spaced `points` over the last `span` periods.",
+        "tags": [
+          "crypto",
+          "price-history",
+          "historical-prices",
+          "bitcoin-price-history",
+          "crypto-chart"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/crypto/coin",
+        "serviceName": "2s",
+        "description": "Full coin profile by CoinGecko id (e.g. bitcoin, ethereum, solana). Returns price, market cap + rank, FDV, 24h volume, all-time high/low with dates, circulating/total/max supply, price changes (1h/24h/7d/30d/1y), categories, and official links (homepage, X, GitHub, subreddit). Richer than crypto.token-price (spot only) and crypto.markets (list row).",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/crypto/hyperliquid-funding",
+        "serviceName": "2s",
+        "description": "Live perp funding rates, open interest, and mark/oracle/mid prices across 200+ Hyperliquid perpetuals (free/keyless). Each row: coin, hourly funding rate, open interest, mark/oracle/mid price, premium, prior-day price, 24h notional volume, max leverage. Filter by coin; sort by oi, volume, or funding. On-chain perp microstructure for funding-arb and OI signals.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/crypto/token-price",
+        "serviceName": "2s",
+        "description": "Current spot price and market data for crypto assets. Pass ids as comma-separated CoinGecko asset ids (e.g. bitcoin, ethereum, solana, usd-coin — lowercase id, not ticker symbol; up to 25 per call) and optionally vs (comma-separated fiat/crypto quote currencies, default usd). Returns per-asset price, market cap, 24h volume, and 24h percent change, plus the data timestamp. Live market data past any training cutoff. Price data by CoinGecko.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/predict/search",
+        "serviceName": "2s",
+        "description": "Cross-venue prediction-market keyword search across Polymarket, Kalshi, and Limitless Exchange in one call. Pass q (required); filter by status (open/closed) and cap per-venue with limit. Each hit is tagged with its venue and returns the question, live YES/NO price (0-1 implied probability), USD volume, close date, and the venue URL — for finding the same real-world question wherever it trades. Read-only, keyless.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/predict/sports",
+        "serviceName": "2s",
+        "description": "Sports prediction markets across Polymarket and Kalshi in one call — game lines, futures, and props (NFL/NBA/MLB/NHL/soccer/tennis/etc). Optionally narrow with league (a tag/category keyword, e.g. nfl, soccer, world-cup) and cap with limit. Each hit is tagged with its venue and returns the question, live YES/NO price (implied probability), USD volume, close date, and the venue URL. Read-only, keyless.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/predict/wallet",
+        "serviceName": "2s",
+        "description": "A Polymarket trader's portfolio by wallet address: total portfolio USD value plus open positions (market title, outcome, size, average vs current price, current value, and unrealized PnL). For tracking a wallet's prediction-market book. Read-only from Polymarket's Data API.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/search/endpoints",
+        "serviceName": "2s",
+        "description": "Find the right 2s endpoint for a task using natural language. Pass q (e.g. 'check if a domain can be spoofed', 'is this CVE being exploited', 'screen a company for sanctions', 'decode a VIN') and get back the catalog's most relevant endpoints, ranked, each with its id, API path, method, group, description, and price. Deterministic keyword + synonym matching over the live endpoint registry (no LLM, no external calls) — a self-routing index so an agent (or its planner) can discover which paid call answers a question instead of reading the whole 290+ endpoint catalog. Returns the path you then call directly.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://2s.io/api/stocks/metrics",
+        "serviceName": "2s",
+        "description": "Key fundamental metrics and 52-week price statistics for a US-listed company. Pass ticker; returns headline valuation, margin, and per-share figures — P/E, P/B, P/S, PEG, EV/EBITDA, gross/operating/net margins, ROE, ROA, current ratio, debt/equity, dividend yield, beta, 52-week high/low, and YTD/52-week price returns — plus the full Finnhub metric map under `metric`. Computed ratios you would otherwise derive yourself from raw filings. Market & fundamental data by Finnhub.",
+        "tags": [
+          "public-records",
+          "identifiers",
+          "ai-agents",
+          "us-gov-data",
+          "x402"
+        ]
+      },
+      {
+        "id": "GET https://3route.agents.bakingbad.dev/api/v6.1/:chainId/quote",
+        "serviceName": "3Route",
+        "description": "Price a swap without building a transaction. Returns expected input, output, and gas without constructing an executable transaction. Quotes are informational and can change with liquidity and chain state.",
+        "tags": [
+          "Swap"
+        ]
+      },
+      {
+        "id": "GET https://3route.agents.bakingbad.dev/v1/:chainId/quote",
+        "serviceName": "3Route",
+        "description": "Price a swap without building a transaction. Returns expected input, output, and gas without constructing an executable transaction. Quotes are informational and can change with liquidity and chain state.",
+        "tags": [
+          "Swap"
+        ]
+      }
+    ]
+  }
+]
