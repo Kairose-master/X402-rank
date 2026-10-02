@@ -142,5 +142,43 @@ the same HTML. These are access failures in this environment, not evidence that
 Coinbase's service is globally unavailable. No catalog, native JSON, labels or live
 metrics were obtained. No historical 2026-09-30 data has been reconstructed.
 The added archive/import regressions use synthetic protocol data and do not count
-as a real benchmark. The live-data work remains incomplete until a successful
-capture is supplied from an environment with public CDP access.
+as a real benchmark. This was superseded by the successful GitHub Actions capture below.
+
+
+### Successful 2026-10-02 live comparison
+
+GitHub Actions run [36973011378](https://github.com/Kairose-master/X402-rank/actions/runs/36973011378)
+captured the full catalog, raw Doctor index/summary and three native searches
+between **2026-10-02 06:20:31.452 and 06:21:31.244 UTC**. There are 21,999 catalog
+rows and 23,885 Doctor index records (index record count is not catalog match count).
+All three native searches report `partialResults: false`; returned counts are
+weather 15, web 15, crypto 11. These are the actual response orders, not catalog
+pagination order. There are 69 judgments across pools of 23, 25 and 21 candidates.
+
+The archive and exact response bytes are checked in under
+`benchmarks/captures/actions-36973011378/`. JSON bodies are losslessly gzip-compressed
+for repository size. `encoding: gzip` archive entries bind SHA-256 to the original
+decompressed bytes. Import verifies those bytes; the existing metric harness now
+also accepts a `.json.gz` snapshot. No scoring formulas or ranker behavior changed.
+
+The snapshot SHA-256 is
+`66030c0735f0f306fa6b400825181ef73fbac609d3f1ecc8d3b446581cdd4208`.
+The unscored capture was committed in `95469af53361cbcb7e870c73da58c60e05c87471`.
+Metadata-only labels, rationales, annotation protocol and imported manifest were
+committed in `34a75d45f8292bcb8c0e15a5970a4a069eadb93f` before this comparison was run.
+Labels use a single model annotator and explicit raw descriptions; they have not
+been validated by a second human annotator or actual seller outcomes.
+
+```sh
+npm run benchmark:import -- --capture benchmarks/captures/actions-36973011378 \
+  --judgments benchmarks/live-judgments.json --out /tmp/imported-live-tasks.json
+npm run benchmark -- --snapshot benchmarks/captures/actions-36973011378/snapshot.json.gz \
+  --labels benchmarks/live-tasks.json --out /tmp/live-benchmark.json
+```
+
+The checked-in `benchmarks/live-results.json` is the original harness output,
+including @1/@3/@5 metrics, coverage, exclusions and separate Doctor context.
+`benchmarks/live-results.md` summarizes interpretation. `test/live-benchmark.test.mjs`
+verifies the archived raw inputs and label bindings and compares offline replay
+byte-for-byte with the checked-in report. Frozen PR labels suppress further
+automatic recaptures; an explicit workflow dispatch can capture a new run.

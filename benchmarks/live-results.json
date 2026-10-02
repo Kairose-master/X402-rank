@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "mode": "offline-snapshot-replay",
+  "snapshotCapturedAt": "2026-10-02T06:21:28.734Z",
+  "snapshotSha256": "66030c0735f0f306fa6b400825181ef73fbac609d3f1ecc8d3b446581cdd4208",
+  "labelProtocol": "41a6e096f544df099730f8db856dd2ae5541f099205a759969c5b386e5158ab6: Metadata-only judgments frozen before scoring; annotation declaration is provenance, not proof of blindness.",
+  "separation": "Semantic labels use exact quotes from raw Bazaar name/description/tags. Doctor values are reported as operational context and never define relevance labels.",
+  "results": [
+    {
+      "taskId": "weather",
+      "query": "weather forecast",
+      "candidateCount": 23,
+      "coverage": {
+        "nativeOrder": 0.6521739130434783,
+        "x402RankEligible": 0.9565217391304348,
+        "x402RankReturned": 0.9565217391304348,
+        "relevantCandidateCount": 22
+      },
+      "semanticRelevance": {
+        "at1": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.045454545454545456,
+            "topKOverlap": 1,
+            "returnedAtK": 1
+          },
+          "x402Rank": {
+            "ndcgAtK": 0.42857142857142855,
+            "recallAtK": 0.045454545454545456,
+            "topKOverlap": 0,
+            "returnedAtK": 1
+          }
+        },
+        "at3": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.13636363636363635,
+            "topKOverlap": 1,
+            "returnedAtK": 3
+          },
+          "x402Rank": {
+            "ndcgAtK": 0.7318407279869963,
+            "recallAtK": 0.13636363636363635,
+            "topKOverlap": 0.6666666666666666,
+            "returnedAtK": 3
+          }
+        },
+        "at5": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.22727272727272727,
+            "topKOverlap": 1,
+            "returnedAtK": 5
+          },
+          "x402Rank": {
+            "ndcgAtK": 0.8061941684150765,
+            "recallAtK": 0.22727272727272727,
+            "topKOverlap": 0.4,
+            "returnedAtK": 5
+          }
+        }
+      },
+      "operationalTrust": {
+        "top5VerdictCounts": {
+          "go": 5
+        },
+        "top5MeanDoctorScore": 1
+      },
+      "exclusions": {
+        "over_budget": 1
+      },
+      "x402RankOrder": [
+        "GET https://agent402.tools/api/weather-forecast",
+        "GET https://wallet-services-poc-clean-mainnet.3hz-services.workers.dev/weather",
+        "GET https://x402.agentindex.world/weather",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-weather",
+        "GET https://agent402.tools/api/weather-daily",
+        "GET https://weather.cyberwarex.com/forecast",
+        "POST https://twin.unykorn.org/geo/weather-forecast",
+        "GET https://2s.io/api/aviation/taf",
+        "GET https://2s.io/api/weather/current",
+        "GET https://api.agentstools.dev/forecast",
+        "GET https://netintel.dev/weather/forecast",
+        "GET https://2s.io/api/weather/forecast",
+        "GET https://api.kadec0.xyz/v1/weather",
+        "GET https://data.intel.rallylive.ca/data/forecast/hamilton",
+        "GET https://data.intel.rallylive.ca/data/forecast/montreal",
+        "GET https://data.intel.rallylive.ca/data/forecast/sudbury",
+        "GET https://intel.rallylive.ca/data/forecast/forecastdenver",
+        "POST https://intel.rallylive.ca/data/forecast",
+        "GET https://agent402.tools/api/weather-air-quality",
+        "GET https://agent402.tools/api/weather-alerts",
+        "GET https://agent402.tools/api/weather-current",
+        "GET https://2s.io/api/weather/zip"
+      ],
+      "bazaarNativeOrder": [
+        "GET https://x402.agentindex.world/weather",
+        "GET https://api.kadec0.xyz/v1/weather",
+        "GET https://wallet-services-poc-clean-mainnet.3hz-services.workers.dev/weather",
+        "POST https://intel.rallylive.ca/data/forecast",
+        "GET https://weather.cyberwarex.com/forecast",
+        "GET https://netintel.dev/weather/forecast",
+        "GET https://agent402.tools/api/weather-forecast",
+        "GET https://data.intel.rallylive.ca/data/forecast/hamilton",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-weather",
+        "GET https://api.agentstools.dev/forecast",
+        "GET https://agent402.tools/api/weather-daily",
+        "GET https://intel.rallylive.ca/data/forecast/forecastdenver",
+        "GET https://data.intel.rallylive.ca/data/forecast/montreal",
+        "POST https://twin.unykorn.org/geo/weather-forecast",
+        "GET https://data.intel.rallylive.ca/data/forecast/sudbury"
+      ],
+      "nativeCapture": {
+        "capturedAt": "2026-10-02T06:21:29.014Z",
+        "request": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=weather+forecast&type=http&limit=20",
+        "source": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search"
+      }
+    },
+    {
+      "taskId": "web",
+      "query": "web search",
+      "candidateCount": 25,
+      "coverage": {
+        "nativeOrder": 0.6,
+        "x402RankEligible": 0.96,
+        "x402RankReturned": 0.96,
+        "relevantCandidateCount": 17
+      },
+      "semanticRelevance": {
+        "at1": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.058823529411764705,
+            "topKOverlap": 1,
+            "returnedAtK": 1
+          },
+          "x402Rank": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.058823529411764705,
+            "topKOverlap": 0,
+            "returnedAtK": 1
+          }
+        },
+        "at3": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.17647058823529413,
+            "topKOverlap": 1,
+            "returnedAtK": 3
+          },
+          "x402Rank": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.17647058823529413,
+            "topKOverlap": 0.3333333333333333,
+            "returnedAtK": 3
+          }
+        },
+        "at5": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.29411764705882354,
+            "topKOverlap": 1,
+            "returnedAtK": 5
+          },
+          "x402Rank": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.29411764705882354,
+            "topKOverlap": 0.4,
+            "returnedAtK": 5
+          }
+        }
+      },
+      "operationalTrust": {
+        "top5VerdictCounts": {
+          "go": 5
+        },
+        "top5MeanDoctorScore": 1
+      },
+      "exclusions": {
+        "no_matching_payment_option": 1
+      },
+      "x402RankOrder": [
+        "POST https://x402-echo-service.onrender.com/web/search",
+        "POST https://x402.agentindex.world/search",
+        "GET https://api.agentstools.dev/search",
+        "GET https://search.cyberwarex.com/search",
+        "GET https://webtools402.176-109-107-191.sslip.io/search",
+        "GET https://x402tap.com/api/web-search",
+        "GET https://pennyregwatch.com/v1/search",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-web-search",
+        "GET https://search.agent.s.brave.app/res/v1/web/search",
+        "GET https://402.com.tr/api/x402/web-search",
+        "GET https://4yearcycle.com/x402/web-search",
+        "GET https://websearch.use.x402atlas.com/search",
+        "POST https://search.openverbs.com/v1/web",
+        "GET https://websearch.use.x402atlas.com/search/advanced",
+        "GET https://api.kadec0.xyz/v1/serp",
+        "GET https://2s.io/api/business/naics",
+        "GET https://2s.io/api/chinese/pinyin",
+        "GET https://2s.io/api/github/search-code",
+        "GET https://2s.io/api/bank/lookup",
+        "GET https://2s.io/api/business/no-companies",
+        "GET https://2s.io/api/business/uk-companies",
+        "GET https://2s.io/api/edu/school-lookup",
+        "GET https://2s.io/api/finance/figi-search",
+        "GET https://2s.io/api/factcheck/search"
+      ],
+      "bazaarNativeOrder": [
+        "GET https://websearch.use.x402atlas.com/search",
+        "POST https://x402.agentindex.world/search",
+        "GET https://webtools402.176-109-107-191.sslip.io/search",
+        "POST https://search.openverbs.com/v1/web",
+        "GET https://api.kadec0.xyz/v1/serp",
+        "GET https://x402tap.com/api/web-search",
+        "GET https://api.agentstools.dev/search",
+        "GET https://4yearcycle.com/x402/web-search",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-web-search",
+        "GET https://search.cyberwarex.com/search",
+        "GET https://websearch.use.x402atlas.com/search/advanced",
+        "GET https://402.com.tr/api/x402/web-search",
+        "POST https://x402-echo-service.onrender.com/web/search",
+        "GET https://pennyregwatch.com/v1/search",
+        "GET https://search.agent.s.brave.app/res/v1/web/search"
+      ],
+      "nativeCapture": {
+        "capturedAt": "2026-10-02T06:21:29.366Z",
+        "request": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=web+search&type=http&limit=20",
+        "source": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search"
+      }
+    },
+    {
+      "taskId": "crypto",
+      "query": "cryptocurrency price",
+      "candidateCount": 21,
+      "coverage": {
+        "nativeOrder": 0.5238095238095238,
+        "x402RankEligible": 0.9047619047619048,
+        "x402RankReturned": 0.9047619047619048,
+        "relevantCandidateCount": 16
+      },
+      "semanticRelevance": {
+        "at1": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.0625,
+            "topKOverlap": 1,
+            "returnedAtK": 1
+          },
+          "x402Rank": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.0625,
+            "topKOverlap": 0,
+            "returnedAtK": 1
+          }
+        },
+        "at3": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.1875,
+            "topKOverlap": 1,
+            "returnedAtK": 3
+          },
+          "x402Rank": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.1875,
+            "topKOverlap": 0.3333333333333333,
+            "returnedAtK": 3
+          }
+        },
+        "at5": {
+          "bazaarNative": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.3125,
+            "topKOverlap": 1,
+            "returnedAtK": 5
+          },
+          "x402Rank": {
+            "ndcgAtK": 1,
+            "recallAtK": 0.3125,
+            "topKOverlap": 0.4,
+            "returnedAtK": 5
+          }
+        }
+      },
+      "operationalTrust": {
+        "top5VerdictCounts": {
+          "go": 5
+        },
+        "top5MeanDoctorScore": 1
+      },
+      "exclusions": {
+        "doctor_no_go": 2
+      },
+      "x402RankOrder": [
+        "POST https://currency-api-production-4a8d.up.railway.app/crypto/price",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-crypto-price",
+        "GET https://5108-x402.community.iamstarchild.com/bazaar/crypto/price",
+        "GET https://netintel.dev/crypto/price",
+        "GET https://intel.rallylive.ca/crypto-price",
+        "POST https://intel.rallylive.ca/data/crypto",
+        "GET https://agent402.tools/api/crypto-price",
+        "GET https://x402tap.com/api/crypto-price",
+        "GET https://2s.io/api/search/endpoints",
+        "GET https://2s.io/api/stocks/metrics",
+        "GET https://2s.io/api/crypto/token-price",
+        "POST https://crypto.openverbs.com/v1/history",
+        "GET https://2s.io/api/crypto/coin",
+        "GET https://2s.io/api/crypto/hyperliquid-funding",
+        "GET https://2s.io/api/predict/wallet",
+        "GET https://api.kadec0.xyz/v1/token-price",
+        "GET https://chain.intel.rallylive.ca/token/price",
+        "GET https://2s.io/api/predict/search",
+        "GET https://2s.io/api/predict/sports"
+      ],
+      "bazaarNativeOrder": [
+        "GET https://intel.rallylive.ca/crypto-price",
+        "POST https://intel.rallylive.ca/data/crypto",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-crypto-price",
+        "GET https://agent402.tools/api/crypto-price",
+        "GET https://x402tap.com/api/crypto-price",
+        "GET https://netintel.dev/crypto/price",
+        "GET https://api.kadec0.xyz/v1/token-price",
+        "GET https://5108-x402.community.iamstarchild.com/bazaar/crypto/price",
+        "GET https://chain.intel.rallylive.ca/token/price",
+        "POST https://currency-api-production-4a8d.up.railway.app/crypto/price",
+        "POST https://crypto.openverbs.com/v1/history"
+      ],
+      "nativeCapture": {
+        "capturedAt": "2026-10-02T06:21:29.935Z",
+        "request": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=cryptocurrency+price&type=http&limit=20",
+        "source": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search"
+      }
+    }
+  ]
+}
