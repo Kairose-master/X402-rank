@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "snapshotSha256": "66030c0735f0f306fa6b400825181ef73fbac609d3f1ecc8d3b446581cdd4208",
+  "labelProtocol": "41a6e096f544df099730f8db856dd2ae5541f099205a759969c5b386e5158ab6: Metadata-only judgments frozen before scoring; annotation declaration is provenance, not proof of blindness.",
+  "provenance": {
+    "archiveSha256": "fac531262c3078653712f3182b43b682cd55271655b17fc754a39389eba15236",
+    "judgmentsSha256": "d18b250e661dd580ad8954450d4d0911141843dd13809cf40c331e15d3b2d12a",
+    "annotation": {
+      "annotator": "Codex: single metadata-only model annotator",
+      "frozenAt": "2026-10-02T06:23:42.259228Z",
+      "scoringNotViewed": true,
+      "protocol": "benchmarks/annotation-protocol.md",
+      "limitations": "Single-annotator ordinal metadata judgments; not independently verified seller behavior or task success."
+    }
+  },
+  "tasks": [
+    {
+      "id": "weather",
+      "query": "weather forecast",
+      "request": {
+        "network": "eip155:8453",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "maxAmount": "50000"
+      },
+      "candidates": [
+        {
+          "id": "GET https://x402.agentindex.world/weather",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Current weather and a 3-day forecast for any city or lat/lon - temperature, humidity, wind, conditions. No account, no API key. Try GET /weather/sample.",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://api.kadec0.xyz/v1/weather",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Weather forecast and air quality for any location worldwide. Returns current conditions plus a 16-day daily weather forecast - temperature highs and lows, precipitation, and wind - alongside air-quality readings includin",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://wallet-services-poc-clean-mainnet.3hz-services.workers.dev/weather",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Global weather forecast for latitude and longitude. Returns the forecast valid now, all available hourly forecast points, and the extended forecast in native 6-hour periods without inventing hourly precision. Data source",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://intel.rallylive.ca/data/forecast",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "7-day daily weather forecast for a place: high and low temperature, precipitation sum and probability, max wind, sunrise/sunset and condition per day, with the resolved location. Free Open-Meteo data. $0.01 per lookup.",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://weather.cyberwarex.com/forecast",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Weather forecast for a location (global, keyless): current conditions, an hourly series (up to 48h) and a daily summary (up to 10 days: min/max temp + condition), from met.no. Pass lat+lon, or a place name. For travel, l",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://netintel.dev/weather/forecast",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Multi-day weather forecast for any city or lat/lon worldwide — up to 16 days of daily highs/lows, precipitation & probability, UV, sunrise/sunset, wind, and plain-language conditions, plus optional next-24h hourly. Give ",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://agent402.tools/api/weather-forecast",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Multi-period weather forecast for a US location from api.weather.gov (NWS, public domain). Give latitude and longitude; returns the place plus upcoming forecast periods (temp, wind, conditions). US coverage only.",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "GET https://data.intel.rallylive.ca/data/forecast/hamilton",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "7-day weather forecast for Hamilton: daily highs and lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Hamilton without an AP",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-weather",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Weather forecast API — current conditions plus hourly and 3-day weather forecast with temperature, wind and humidity for any city worldwide; live weather data for agents. Deterministic on-chain execution by the AmanChain",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://api.agentstools.dev/forecast",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Official US weather forecast from the National Weather Service (NOAA): multi-day and hourly periods for any US coordinates or street address. Temperature in Celsius and Fahrenheit, precipitation probability, wind speed a",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "GET https://agent402.tools/api/weather-daily",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "7-day daily weather forecast for any location: high/low temp, precipitation sum and probability, max wind, UV index, sunrise/sunset. Open-Meteo, no key, global.",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://intel.rallylive.ca/data/forecast/forecastdenver",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "7-day weather forecast for Denver: daily highs, lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Denver without an API key. ",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "GET https://data.intel.rallylive.ca/data/forecast/montreal",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "7-day weather forecast for Montreal: daily highs and lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Montreal without an AP",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "POST https://twin.unykorn.org/geo/weather-forecast",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Daily weather forecast up to 16 days: highs, lows, rain chance, wind, UV, sunrise/sunset — Genesis402 / UnyKorn Operator Network",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://data.intel.rallylive.ca/data/forecast/sudbury",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "7-day weather forecast for Sudbury: daily highs and lows, precipitation probability and totals, wind and conditions, plus hourly detail for today, from Open-Meteo. Trip planning and scheduling for Sudbury without an API ",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "GET https://2s.io/api/aviation/taf",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Terminal Aerodrome Forecast (TAF) for one or more airports — the official aviation forecast issued for an airport (~24–30h ahead). Pass ids = comma-separated ICAO station ids (e.g. KATL). Returns the raw TAF text + issue",
+          "rationale": "Airport aviation forecast is a narrower forecast capability."
+        },
+        {
+          "id": "GET https://2s.io/api/weather/current",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Current weather conditions for any coordinate worldwide. Pass lat + lon (and optional units=metric|imperial, default metric). Returns temperature, feels-like, humidity, precipitation (rain/snow), cloud cover, sea-level p",
+          "rationale": "Current conditions only; the task asks for a forecast."
+        },
+        {
+          "id": "GET https://2s.io/api/weather/forecast",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Official US weather forecast for a coordinate (US land + territories). Pass lat + lon. Returns the National Weather Service forecast as a list of periods — by default ~7 days of day/night periods; pass hourly=true for an",
+          "rationale": "Explicit geographic scope is narrower than a general weather forecast."
+        },
+        {
+          "id": "GET https://2s.io/api/weather/zip",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Current weather conditions for a US ZIP code (temperature, wind, humidity, conditions). Backed by the US National Weather Service (api.weather.gov) — public domain, no rate-limit pressure on commercial use.",
+          "rationale": "Current conditions only and geographically limited."
+        },
+        {
+          "id": "GET https://aeml-x402.zeabur.app/stable/graveyard",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "[BATCH+PROOF] Stablecoin death register - terminated below 0.10 or persistently absent. Add ?verifiable=1 for per-row _hash_core, fully offline-recomputable. A neutral observation record: not a rating, not an endorsement",
+          "rationale": "Stablecoin death register explicitly disclaims forecasting; unrelated to weather."
+        },
+        {
+          "id": "GET https://agent402.tools/api/weather-air-quality",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Current air quality index and pollutant concentrations for any location: US AQI, PM2.5, PM10, ozone, NO2, SO2, CO. Open-Meteo air quality API, no key, global.",
+          "rationale": "Air-quality readings are adjacent environmental data, not a weather forecast."
+        },
+        {
+          "id": "GET https://agent402.tools/api/weather-alerts",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Active National Weather Service alerts for a US state as clean JSON: event, severity, headline, affected areas, onset/expiry. Live government data, no key.",
+          "rationale": "Weather alerts are adjacent warnings, not a forecast."
+        },
+        {
+          "id": "GET https://agent402.tools/api/weather-current",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Current weather conditions for any location on Earth: temperature, feels-like, humidity, wind speed/direction/gusts, precipitation, cloud cover, pressure, and human-readable condition. Open-Meteo, no key, global.",
+          "rationale": "Current conditions only; no future forecast promised."
+        }
+      ],
+      "nativeOrder": [
+        "GET https://x402.agentindex.world/weather",
+        "GET https://api.kadec0.xyz/v1/weather",
+        "GET https://wallet-services-poc-clean-mainnet.3hz-services.workers.dev/weather",
+        "POST https://intel.rallylive.ca/data/forecast",
+        "GET https://weather.cyberwarex.com/forecast",
+        "GET https://netintel.dev/weather/forecast",
+        "GET https://agent402.tools/api/weather-forecast",
+        "GET https://data.intel.rallylive.ca/data/forecast/hamilton",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-weather",
+        "GET https://api.agentstools.dev/forecast",
+        "GET https://agent402.tools/api/weather-daily",
+        "GET https://intel.rallylive.ca/data/forecast/forecastdenver",
+        "GET https://data.intel.rallylive.ca/data/forecast/montreal",
+        "POST https://twin.unykorn.org/geo/weather-forecast",
+        "GET https://data.intel.rallylive.ca/data/forecast/sudbury"
+      ],
+      "nativeCapture": {
+        "capturedAt": "2026-10-02T06:21:29.014Z",
+        "request": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=weather+forecast&type=http&limit=20",
+        "source": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search"
+      },
+      "nativePartialResults": false,
+      "nativeSearchMethod": "hybrid"
+    },
+    {
+      "id": "web",
+      "query": "web search",
+      "request": {
+        "network": "eip155:8453",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "maxAmount": "50000"
+      },
+      "candidates": [
+        {
+          "id": "GET https://websearch.use.x402atlas.com/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Real-time web search for AI agents — search the web and get ranked SERP-style results as clean JSON: title, URL, snippet, relevance score, optional LLM-generated answer. Find up-to-date information online — latest news, ",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://x402.agentindex.world/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search: search the web and get ranked results with page content. Up to 10 results with title, URL, snippet and publish date, plus clean full-page Markdown for the top 3 by default. Up to 5 queries per call, merged an",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://webtools402.176-109-107-191.sslip.io/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Free-text web search for AI agents: ranked title/url/snippet results fused across multiple engines (Brave, Google, DuckDuckGo, Mojeek, Startpage, Yahoo), with freshness filters (past day/week/month/year), region/locale a",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://search.openverbs.com/v1/web",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search API - live Google (default) or Bing SERP for a query: search engine results returned as ranked organic hits with title, URL, domain and snippet, localised by location and language. A google search api / serp a",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://api.kadec0.xyz/v1/serp",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search results (SERP). Keyless web search returning ranked title, URL, and snippet for a query — with locale/region targeting, freshness filters (past day, week, month, year), pagination, a news mode that adds publis",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://x402tap.com/api/web-search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Real-time web search (via Exa) — ranked results with title, URL, published date, author, and relevance score for a query",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://api.agentstools.dev/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Free-text web search for AI agents: ranked title/url/snippet results fused across multiple engines (Brave, Google, DuckDuckGo, Mojeek, Startpage, Yahoo), with freshness filters (past day/week/month/year), region/locale a",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://4yearcycle.com/x402/web-search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "General web search reselling the Tavily Search API: query the live web and get back ranked results (title, URL, snippet, relevance score) plus an optional short synthesized answer, with basic or advanced search depth and",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-web-search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search API — live web search engine results for any query with titles, URLs and snippets; real-time SERP for web search, news search and docs search, agent-ready. Deterministic on-chain execution by the AmanChain nod",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://search.cyberwarex.com/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search that returns structured SERP results as JSON. Runs on a dedicated SearXNG instance aggregating multiple engines, so there is no per-engine API key, quota or HTML scraping to manage. Each result carries title, ",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://websearch.use.x402atlas.com/search/advanced",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Deep web research for AI agents — advanced search returning the highest-relevance results with multiple query-focused snippets per source, plus an optional LLM-generated answer grounded in the returned sources when inclu",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://402.com.tr/api/x402/web-search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Search the live web from an agent that has no browser: pass query= and get back ranked results (title, URL, snippet, relevance score) plus a synthesized one-paragraph answer over them. maxResults=1..20 (default 5); inclu",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://x402-echo-service.onrender.com/web/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search for agents. POST a JSON body with a \"query\" string and an optional \"limit\" (1-20); returns ranked results, each with a title, url and text snippet. Keyword and semantic matching, no API key required, billed pe",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://pennyregwatch.com/v1/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Real-time web search for AI agents. Search the web for current and up-to-date information, news, facts, research, documentation, and sources beyond model training data. Returns ranked structured JSON results with title, ",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://search.agent.s.brave.app/res/v1/web/search",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Web search over Brave's independent index. Returns ranked pages with title, URL, and snippet, plus news, video, and discussion results when relevant. Use it to find current sources on any topic. Pass q, and optionally co",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://2s-rjsw718bb-alleyford.vercel.app/api/space/satellites",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Search the catalog of every cataloged Earth-orbiting object — ~69,000 satellites, rocket bodies, and debris tracked by US Space Force / 18 SDS (via CelesTrak SATCAT). Filter by name (q, e.g. \"starlink\"), owner/launching ",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/bank/lookup",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "FDIC-insured US bank directory lookup. Lookup by name (fuzzy match), FDIC certificate number, RSSD ID, or state. Each record includes name + short name, web address, active flag, city/state/county/zip, established + insu",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/business/naics",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Look up or search NAICS 2022 industry classification codes (US Census Bureau, public domain). Pass `code` for an exact NAICS code — 2–6 digits or a combined sector like 31-33 — and get its official title, hierarchy path,",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/business/no-companies",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Official Norwegian company registry search (Brønnøysund Enhetsregisteret). Search by company name. Each result: organisation number, name, organisation form, primary industry (NACE), employee count, registration date, we",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/business/uk-companies",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Official UK company registry (Companies House). Two modes: pass query to search companies by name (returns company number, name, status, type, incorporation date, address), or pass companyNumber for the full registry pro",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/chinese/pinyin",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Convert Chinese (Hanzi) text to pinyin romanization. Choose tone marks (symbol, e.g. hàn yǔ), numbered tones (han4 yu3), or no tones. Auto-segments words and returns the full pinyin string plus a per-syllable array. Dete",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/edu/school-lookup",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Look up any US public K-12 school (~102k, NCES Common Core of Data). Search by name (partial), district (LEA name, partial), state (2-letter), city, zip, or exact ncessch (12-digit NCES id). Each school: NCES id, name, d",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/factcheck/search",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Search the global corpus of published fact-checks (ClaimReview) by free-text claim. Returns matching claims with the claimant, claim date, and each fact-check review's verdict (textualRating, e.g. \"False\", \"Misleading\", ",
+          "rationale": "Searches published fact-checks, an adjacent source-discovery corpus, not general web search."
+        },
+        {
+          "id": "GET https://2s.io/api/finance/figi-search",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Free-text search for securities across global exchanges via OpenFIGI. Give a query (company name, ticker, description) and optionally narrow by exchCode (e.g. US), securityType, or marketSector (Equity, Corp, Govt, Mtge,",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/github/search-code",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Search code across GitHub with the code-search syntax (e.g. 'defineEndpoint repo:AlleyFord/2s' or 'addEventListener language:js'). Returns total match count + file name, path, repository, and URL for each hit. Read-only;",
+          "rationale": "Searches source code on GitHub rather than general web pages."
+        }
+      ],
+      "nativeOrder": [
+        "GET https://websearch.use.x402atlas.com/search",
+        "POST https://x402.agentindex.world/search",
+        "GET https://webtools402.176-109-107-191.sslip.io/search",
+        "POST https://search.openverbs.com/v1/web",
+        "GET https://api.kadec0.xyz/v1/serp",
+        "GET https://x402tap.com/api/web-search",
+        "GET https://api.agentstools.dev/search",
+        "GET https://4yearcycle.com/x402/web-search",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-web-search",
+        "GET https://search.cyberwarex.com/search",
+        "GET https://websearch.use.x402atlas.com/search/advanced",
+        "GET https://402.com.tr/api/x402/web-search",
+        "POST https://x402-echo-service.onrender.com/web/search",
+        "GET https://pennyregwatch.com/v1/search",
+        "GET https://search.agent.s.brave.app/res/v1/web/search"
+      ],
+      "nativeCapture": {
+        "capturedAt": "2026-10-02T06:21:29.366Z",
+        "request": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=web+search&type=http&limit=20",
+        "source": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search"
+      },
+      "nativePartialResults": false,
+      "nativeSearchMethod": "hybrid"
+    },
+    {
+      "id": "crypto",
+      "query": "cryptocurrency price",
+      "request": {
+        "network": "eip155:8453",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "maxAmount": "50000"
+      },
+      "candidates": [
+        {
+          "id": "GET https://intel.rallylive.ca/crypto-price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Crypto price lookup: current USD price of bitcoin, ethereum, solana, USDC and other major coins by name or symbol, with 24-hour change, high, low and volume from Coinbase public market data (CoinGecko fallback). Live cry",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://intel.rallylive.ca/data/crypto",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Cryptocurrency price: current USD price, 24h change, market cap and 24h volume for a coin by id or symbol (bitcoin, ethereum, solana, usdc and 100+ others) from CoinGecko's free API. $0.01 per lookup.",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-crypto-price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Bitcoin price and live USD spot price for any major cryptocurrency — BTC, ETH, SOL and 100+ assets; real-time single-token price API with 24h change. Deterministic on-chain execution by the AmanChain node — live consensu",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://agent402.tools/api/crypto-price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Live spot price for one or many coins in any quote currency: last price, 24h change, 24h volume and market cap per coin, from a maintained market feed and answered in under a second. Use it when an agent needs a current ",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://x402tap.com/api/crypto-price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Look up current price, 24h change, and market cap for one or more cryptocurrencies",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://netintel.dev/crypto/price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Crypto prices for up to 25 coins in one call — live cryptocurrency spot prices for BTC, ETH, SOL and more in USD, EUR, or GBP from Coinbase with Kraken and CoinGecko fallback; no API key, one flat price. Per asset: price",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://api.kadec0.xyz/v1/token-price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Crypto token price and market data. Returns the live price of one or many tokens by coin id or ticker symbol, in a chosen vs-currency, with market cap, 24-hour volume, and 24-hour price change. For crypto price lookups, ",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://5108-x402.community.iamstarchild.com/bazaar/crypto/price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Get real-time spot price and market data for a cryptocurrency",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://chain.intel.rallylive.ca/token/price",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Current USD price of any ERC-20 token by contract address (deepest DEX pair), with 24h change, liquidity and market cap. Default chain Base; prefix another: ethereum:, arbitrum:, optimism:, polygon:, bsc:. $0.01 per call",
+          "rationale": "ERC-20 DEX token coverage is narrower than general cryptocurrency price lookup."
+        },
+        {
+          "id": "POST https://currency-api-production-4a8d.up.railway.app/crypto/price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Current price, market cap, and 24h change for a single cryptocurrency by symbol or name (CoinGecko).",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "POST https://crypto.openverbs.com/v1/history",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Token price history: historical USD price series (price chart data) for one coin/token by coin id (e.g. \"coingecko:bitcoin\", \"ethereum:0xdAC17…\"). Returns evenly spaced `points` over the last `span` periods.",
+          "rationale": "Historical series can inform pricing research but does not promise a current spot price."
+        },
+        {
+          "id": "GET https://2s.io/api/crypto/coin",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Full coin profile by CoinGecko id (e.g. bitcoin, ethereum, solana). Returns price, market cap + rank, FDV, 24h volume, all-time high/low with dates, circulating/total/max supply, price changes (1h/24h/7d/30d/1y), categor",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/crypto/hyperliquid-funding",
+          "grade": 2,
+          "sourceField": "description",
+          "evidence": "Live perp funding rates, open interest, and mark/oracle/mid prices across 200+ Hyperliquid perpetuals (free/keyless). Each row: coin, hourly funding rate, open interest, mark/oracle/mid price, premium, prior-day price, 2",
+          "rationale": "Derivative mark/oracle/mid prices are narrower than general cryptocurrency spot pricing."
+        },
+        {
+          "id": "GET https://2s.io/api/crypto/token-price",
+          "grade": 3,
+          "sourceField": "description",
+          "evidence": "Current spot price and market data for crypto assets. Pass ids as comma-separated CoinGecko asset ids (e.g. bitcoin, ethereum, solana, usd-coin — lowercase id, not ticker symbol; up to 25 per call) and optionally vs (com",
+          "rationale": "Explicitly advertises the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/predict/search",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Cross-venue prediction-market keyword search across Polymarket, Kalshi, and Limitless Exchange in one call. Pass q (required); filter by status (open/closed) and cap per-venue with limit. Each hit is tagged with its venu",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/predict/sports",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Sports prediction markets across Polymarket and Kalshi in one call — game lines, futures, and props (NFL/NBA/MLB/NHL/soccer/tennis/etc). Optionally narrow with league (a tag/category keyword, e.g. nfl, soccer, world-cup)",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/predict/wallet",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "A Polymarket trader's portfolio by wallet address: total portfolio USD value plus open positions (market title, outcome, size, average vs current price, current value, and unrealized PnL). For tracking a wallet's predict",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/search/endpoints",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Find the right 2s endpoint for a task using natural language. Pass q (e.g. 'check if a domain can be spoofed', 'is this CVE being exploited', 'screen a company for sanctions', 'decode a VIN') and get back the catalog's m",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://2s.io/api/stocks/metrics",
+          "grade": 0,
+          "sourceField": "description",
+          "evidence": "Key fundamental metrics and 52-week price statistics for a US-listed company. Pass ticker; returns headline valuation, margin, and per-share figures — P/E, P/B, P/S, PEG, EV/EBITDA, gross/operating/net margins, ROE, ROA,",
+          "rationale": "Advertises a specialized dataset or different function, not the requested capability."
+        },
+        {
+          "id": "GET https://3route.agents.bakingbad.dev/api/v6.1/:chainId/quote",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Price a swap without building a transaction. Returns expected input, output, and gas without constructing an executable transaction. Quotes are informational and can change with liquidity and chain state.",
+          "rationale": "Informational swap quote can inform token valuation, but is not a direct spot-price lookup."
+        },
+        {
+          "id": "GET https://3route.agents.bakingbad.dev/v1/:chainId/quote",
+          "grade": 1,
+          "sourceField": "description",
+          "evidence": "Price a swap without building a transaction. Returns expected input, output, and gas without constructing an executable transaction. Quotes are informational and can change with liquidity and chain state.",
+          "rationale": "Informational swap quote can inform token valuation, but is not a direct spot-price lookup."
+        }
+      ],
+      "nativeOrder": [
+        "GET https://intel.rallylive.ca/crypto-price",
+        "POST https://intel.rallylive.ca/data/crypto",
+        "POST https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-crypto-price",
+        "GET https://agent402.tools/api/crypto-price",
+        "GET https://x402tap.com/api/crypto-price",
+        "GET https://netintel.dev/crypto/price",
+        "GET https://api.kadec0.xyz/v1/token-price",
+        "GET https://5108-x402.community.iamstarchild.com/bazaar/crypto/price",
+        "GET https://chain.intel.rallylive.ca/token/price",
+        "POST https://currency-api-production-4a8d.up.railway.app/crypto/price",
+        "POST https://crypto.openverbs.com/v1/history"
+      ],
+      "nativeCapture": {
+        "capturedAt": "2026-10-02T06:21:29.935Z",
+        "request": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=cryptocurrency+price&type=http&limit=20",
+        "source": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search"
+      },
+      "nativePartialResults": false,
+      "nativeSearchMethod": "hybrid"
+    }
+  ]
+}

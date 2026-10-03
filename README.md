@@ -98,3 +98,5 @@ GitHub Actions runs deterministic tests, then a separate **non-blocking live cat
 This release does **not** pay, probe sellers, validate live 402 challenges, verify signed task results, train an ML model or import xAI's recommender. A real buyer must revalidate the current challenge, destination, amount, network and output requirements before authorizing any payment. A signature proves origin/integrity, not truthful or useful content.
 
 Next: prepare and freeze an independently labelled Bazaar task set using [the benchmark protocol](docs/benchmark.md), then add consented outcome collection and budgeted exploration. See [data contracts](docs/data-contracts.md) for upstream sources and freshness/coverage limitations.
+
+Real-data Bazaar comparison: [2026-10-02 results and limitations](benchmarks/live-results.md), with SHA-bound raw inputs, frozen metadata-only labels, and offline replay.

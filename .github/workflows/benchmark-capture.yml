@@ -1,0 +1,56 @@
+name: Unscored live benchmark capture
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/live-plan.json'
+      - 'scripts/*benchmark*.mjs'
+      - '.github/workflows/benchmark-capture.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - name: Keep frozen labels bound to their original capture
+        id: freeze
+        run: |
+          if [ -f benchmarks/live-judgments.json ] && [ "${{ github.event_name }}" != workflow_dispatch ]; then
+            echo "frozen=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "frozen=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Capture catalog, Doctor and native search without scoring
+        if: steps.freeze.outputs.frozen != 'true'
+        run: npm run benchmark:capture -- --out benchmarks/captures/actions-${{ github.run_id }}
+      - name: Commit compressed unscored fixtures to this PR branch
+        if: success() && steps.freeze.outputs.frozen != 'true' && github.event_name == 'pull_request' && github.event.pull_request.number == 5
+        env:
+          CAPTURE_DIR: benchmarks/captures/actions-${{ github.run_id }}
+          PR_BRANCH: ${{ github.head_ref }}
+        run: |
+          node scripts/pack-benchmark.mjs "$CAPTURE_DIR"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$CAPTURE_DIR"
+          git commit -m "data: freeze unscored Bazaar native capture ${{ github.run_id }}"
+          git push origin "HEAD:$PR_BRANCH"
+      - name: Preserve unscored inputs or failure evidence
+        if: always() && steps.freeze.outputs.frozen != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-unscored-${{ github.run_id }}
+          path: benchmarks/captures/actions-*
+          if-no-files-found: error
+          retention-days: 7

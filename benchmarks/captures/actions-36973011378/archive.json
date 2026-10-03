@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-02T06:20:31.452Z",
+  "plan": {
+    "file": "plan.json",
+    "sha256": "41a6e096f544df099730f8db856dd2ae5541f099205a759969c5b386e5158ab6"
+  },
+  "responses": [
+    {
+      "file": "response-000.json.gz",
+      "sha256": "2d4f907730509e8997aa24a3fa928180c9fee336a54d074de881f598cca103a5",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=0",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:32.446Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-001.json.gz",
+      "sha256": "53398850fabd7530683129e85eb142d43188ba265ad3372e6a07adeb9d3982aa",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:33.893Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-002.json.gz",
+      "sha256": "8e064562dcc435ff8ff1ccfe8a9b6184bfe42b5352b2d2366e6b309c81edcff2",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=1000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:35.385Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-003.json.gz",
+      "sha256": "5bb36ed406fd3dff338a6c2e95039809e05b7ad908e00e67b8c78741c52b1bde",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=1500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:37.260Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-004.json.gz",
+      "sha256": "452d0d41b1fd72e45152d556de48172233dec999a43b3f949297092f0361c171",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=2000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:38.908Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-005.json.gz",
+      "sha256": "1e6e22fc2b6f3730d706af3d9cf8bd89fe5c8e3cb3e01378c027d4c243a72b11",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=2500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:40.210Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-006.json.gz",
+      "sha256": "c8ef16e236129aab9d061c801265ee78e09851889f92856bb8fefcc1c59d2ac8",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=3000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:42.129Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-007.json.gz",
+      "sha256": "dc4e06156a2732e127eea67714a0774095c3610afe857897c35409d9fff03ba4",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=3500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:43.564Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-008.json.gz",
+      "sha256": "04cc1342adc0330e17d86b853619b792b4d5873b6d375be9a01936fdfa144c66",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=4000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:45.032Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-009.json.gz",
+      "sha256": "15bbef27fa7f9a54ce727f1b91d9bbbc2b225653d13880fb77761ff468923723",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=4500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:45.534Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-010.json.gz",
+      "sha256": "6b66abf8634f4e0b32af83e7c3852895451c1a5d1e1bf67dcdf74199bd11be75",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=5000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:47.034Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-011.json.gz",
+      "sha256": "39659ad1727793443e9e366c113b769d10b9c9e4fc6a387e26b812e6ffd466ec",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=5500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:47.858Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-012.json.gz",
+      "sha256": "2b6d1bebeb9f2275134740d2180e150ccd21539b83fd4fe65ebc1f4c6c68c2ea",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=6000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:49.438Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-013.json.gz",
+      "sha256": "f5bab6f23f235f749d15270c68416dc44c120eba79492d9340667c040d47b4f0",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=6500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:50.733Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-014.json.gz",
+      "sha256": "ff79728a908ac17b93d5a6cd63528d81b74708d64ccb535c641c310e12be13b3",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=7000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:51.826Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-015.json.gz",
+      "sha256": "a048c4f549c5c778f2c36687a4eb37d1ba61f8d0446ffb3639155e71f73ed339",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=7500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:54.082Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-016.json.gz",
+      "sha256": "4b0152b2c5354cd7e319796f0ef39dc48520edf05b010038098d8530b835b978",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=8000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:57.399Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-017.json.gz",
+      "sha256": "1800f38268bd8c270ff69b5379619a6299f6f9a30c507ff4f87efc112f182f16",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=8500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:20:59.954Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-018.json.gz",
+      "sha256": "fd54acf70e35cd9d08bb75095ffbe77c33b221904ce7b29622af233080989fa6",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=9000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:01.634Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-019.json.gz",
+      "sha256": "dbbf7dcf660dd3009056b180fe977304e37d8306283c7fa6fa8800afecac5ac2",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=9500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:02.651Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-020.json.gz",
+      "sha256": "96f89fe99bfbda0001ddd79dfa5970a137b1fdec7d516a4e6dc17e9e497cf5e1",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=10000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:04.717Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-021.json.gz",
+      "sha256": "1e04b312ad7f5f7d26eaaefbd8a762628b6d57ae0322dd0698060be0bdba89d2",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=10500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:06.562Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-022.json.gz",
+      "sha256": "b1793f860aba544324f2ea28414fdf02120080e600b851e3f1d1af34e1c43c3b",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=11000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:07.199Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-023.json.gz",
+      "sha256": "a017b0a2ce86ab571b8a91b0be7c6583f13067e0a88f4ad2cf13f248bda42130",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=11500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:08.406Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-024.json.gz",
+      "sha256": "58b527ea152b8c6db887939172235c41046fe3b5a4a3da768cd2aca966853662",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=12000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:09.114Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-025.json.gz",
+      "sha256": "3fe41a42c469451b18775590dbf301f3be590c9f30300e85f6e130ab6513acb3",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=12500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:10.946Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-026.json.gz",
+      "sha256": "d2a2809d5c64fd2c5ecf3aa84c34e3c357e12a2fb30c093d7fc15ee73914a27f",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=13000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:11.584Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-027.json.gz",
+      "sha256": "fbcf8443c866d0b3e7ac4c5237a0b624400c296e39732c7c5602f2764074e9d8",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=13500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:11.866Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-028.json.gz",
+      "sha256": "465740f4b5f3a719684edb3e86c2623b20f2d502ee05e851b13baf066d87e9b9",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=14000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:12.348Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-029.json.gz",
+      "sha256": "6cb759719d0af2755462114f25efde9636239885e73c58a9c261b5552d1d85ed",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=14500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:13.732Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-030.json.gz",
+      "sha256": "2097c3cdd6865b7e75818e1ebc485d881fbac8c35205a4a878bf2f949f12c501",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=15000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:15.036Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-031.json.gz",
+      "sha256": "7af27b01f7a02ea26f2cb71611be6c44284223ea39d2ea140cacff47ad4e87bf",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=15500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:15.324Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-032.json.gz",
+      "sha256": "06a3f5fc614dcc1a7c3ad5867fefd19af7d843cae6713318b935c344c6988436",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=16000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:16.586Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-033.json.gz",
+      "sha256": "a4f261c52a72cfdf3127ad6deef8157a2b25317a77c74a3e18a624bd261a1569",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=16500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:17.214Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-034.json.gz",
+      "sha256": "bf1bdbbae7ee5b81a64149dd24bc476a2feff15c0b3a766b47a23466b2043b99",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=17000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:18.487Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-035.json.gz",
+      "sha256": "b3e964b2b9a9cfa8b6513f4eb7c623b29e76334d8753b49533a915dbe82c7091",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=17500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:19.987Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-036.json.gz",
+      "sha256": "64ffb052b15f2ecdc2c2187945d7a4d560089ea261fbc7739440afe6bea87e67",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=18000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:21.624Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-037.json.gz",
+      "sha256": "66d8213b428dbb5dd42d2d0d2ea6d4e52c7abcb0b9b3ad149cdf3035552bcfba",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=18500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:22.687Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-038.json.gz",
+      "sha256": "d1fa5fe1a898b16b82d4848d69cfdea30df15b89b0b31e7a284dfe4b3342f053",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=19000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:22.924Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-039.json.gz",
+      "sha256": "ce3c2a4fb51ecbb44eadd856dbb7e30d92a524467276344d280c07a667f88cb0",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=19500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:23.171Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-040.json.gz",
+      "sha256": "dfcc25fe8f26ea6d8c068e5174848e3cea5f596bb78f267f43285fc2452699c7",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=20000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:24.573Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-041.json.gz",
+      "sha256": "d50cdc7d3442f330a6b87a3f6ace6dce2419213f82d153a57cbcf33ff0c6846b",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=20500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:25.216Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-042.json.gz",
+      "sha256": "2c3471933828b45f8dde715f9dbf58336479e6323782304d7acab264f7b778fd",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=21000",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:26.671Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-043.json.gz",
+      "sha256": "6d5da4abb0b02d9231a35150aa6f00b4e5c6806f7b21785544d50f20a1d8f910",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?type=http&limit=500&offset=21500",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:27.646Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-044.json.gz",
+      "sha256": "941c1adb92a98b06e8de27955ea1d9a3762c45c90dbaf42e18e92ffaf5e7092c",
+      "url": "https://raw.githubusercontent.com/Fizzl13/x402-doctor/trust-data/index.json",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:28.009Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-045.json.gz",
+      "sha256": "5ae63f43bbc2ea24e9423a334ecf281463354a01fbc8035728d3086b2c861d57",
+      "url": "https://x402-doctor.fizzl.eu/api/trust/summary",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:28.734Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-046.json.gz",
+      "sha256": "781848d2d3aef4c9803d72575a52275c003ea549c3573652eb56f24aa4067c9f",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=weather+forecast&type=http&limit=20",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:29.014Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-047.json.gz",
+      "sha256": "06420d67710016ee1fb939378e1aa6cfc3d5718d8452805dc529326544adbccd",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=web+search&type=http&limit=20",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:29.366Z",
+      "encoding": "gzip"
+    },
+    {
+      "file": "response-048.json.gz",
+      "sha256": "5c4462f5400846e7e4f60133a0bce93120adebe875ed9cf714ed6b6197817246",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=cryptocurrency+price&type=http&limit=20",
+      "status": 200,
+      "capturedAt": "2026-10-02T06:21:29.935Z",
+      "encoding": "gzip"
+    }
+  ],
+  "searches": [
+    {
+      "taskId": "weather",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=weather+forecast&type=http&limit=20",
+      "response": {
+        "file": "response-046.json.gz",
+        "sha256": "781848d2d3aef4c9803d72575a52275c003ea549c3573652eb56f24aa4067c9f",
+        "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=weather+forecast&type=http&limit=20",
+        "status": 200,
+        "capturedAt": "2026-10-02T06:21:29.014Z",
+        "encoding": "gzip"
+      }
+    },
+    {
+      "taskId": "web",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=web+search&type=http&limit=20",
+      "response": {
+        "file": "response-047.json.gz",
+        "sha256": "06420d67710016ee1fb939378e1aa6cfc3d5718d8452805dc529326544adbccd",
+        "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=web+search&type=http&limit=20",
+        "status": 200,
+        "capturedAt": "2026-10-02T06:21:29.366Z",
+        "encoding": "gzip"
+      }
+    },
+    {
+      "taskId": "crypto",
+      "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=cryptocurrency+price&type=http&limit=20",
+      "response": {
+        "file": "response-048.json.gz",
+        "sha256": "5c4462f5400846e7e4f60133a0bce93120adebe875ed9cf714ed6b6197817246",
+        "url": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/search?query=cryptocurrency+price&type=http&limit=20",
+        "status": 200,
+        "capturedAt": "2026-10-02T06:21:29.935Z",
+        "encoding": "gzip"
+      }
+    }
+  ],
+  "snapshot": {
+    "file": "snapshot.json.gz",
+    "sha256": "66030c0735f0f306fa6b400825181ef73fbac609d3f1ecc8d3b446581cdd4208",
+    "encoding": "gzip"
+  },
+  "finishedAt": "2026-10-02T06:21:31.244Z"
+}

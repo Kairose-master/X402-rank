@@ -1,0 +1,5 @@
+{
+  "startedAt": "2026-10-02T00:36:51.229Z",
+  "failedAt": "2026-10-02T00:36:59.833Z",
+  "error": "Capture expected JSON; upstream returned non-JSON (possibly an access wall)"
+}
